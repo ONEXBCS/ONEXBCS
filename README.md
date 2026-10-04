@@ -23,7 +23,7 @@ De site draait rond Pinokkio, mijn bijnaam sinds ik klein ben: houten poppen, to
 - **Home:** een houten marionet die naar je muis kijkt, liegt, danst en waarvan de neus groeit
 - **Wie ben ik:** wie ik ben en waarom iedereen me Pinokkio noemt
 - **Skills:** Lua, Python, HTML & CSS, JavaScript, SQL en C++
-- **Laten maken:** FiveM servers, Minecraft servers, Roblox games, custom websites en meer
+- **Laten maken:** custom websites, FiveM servers, Minecraft servers, Roblox games, Raspberry Pi projecten en meer
 - **Socials:** al mijn kanalen op één plek
 - **Contact:** knip je eigen brief in elkaar en verstuur hem via Gmail, je mail-app of Discord
 - **NL / EN:** wissel met één klik tussen Nederlands en Engels

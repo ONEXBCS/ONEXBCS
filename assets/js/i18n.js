@@ -67,8 +67,8 @@
     "site voor je bedrijf of zaak":"site for your business or shop","portfolio of landingspagina":"portfolio or landing page",
     "site voor je server of clan":"site for your server or clan","werkt op gsm en pc":"works on phone and PC",
     "Iets anders in gedachten?":"Something else in mind?",
-    "Een Discord server opzetten, een Discord bot, een Python tool of iets wat nog niet bestaat. Stuur een berichtje, dan bekijken we samen wat kan.":
-      "Setting up a Discord server, a Discord bot, a Python tool or something that doesn't exist yet. Send me a message and we'll figure it out together.",
+    "Een Discord server opzetten, een Discord bot, een Raspberry Pi project, een Python tool of iets wat nog niet bestaat. Stuur een berichtje, dan bekijken we samen wat kan.":
+      "Setting up a Discord server, a Discord bot, a Raspberry Pi project, a Python tool or something that doesn't exist yet. Send me a message and we'll figure it out together.",
     "Contacteer me":"Contact me",
 
     /* socials */
