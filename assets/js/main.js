@@ -137,6 +137,14 @@
   const fName=document.getElementById("f-name"),fMsg=document.getElementById("f-msg"),note=document.getElementById("note");
   const nTitle=document.getElementById("n-title"),nMsg=document.getElementById("n-msg"),nName=document.getElementById("n-name");
   const mailbtn=document.getElementById("mailbtn"),gmailbtn=document.getElementById("gmailbtn"),status=document.getElementById("status");
+  /* phones: Gmail web compose doesn't work well, use the mail app instead */
+  const isPhone=/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)||(matchMedia("(pointer:coarse)").matches&&innerWidth<1024);
+  if(isPhone){
+    gmailbtn.hidden=true;
+    mailbtn.textContent="Verstuur via mail";
+    mailbtn.classList.remove("ghost");mailbtn.classList.add("red");
+    mailbtn.removeAttribute("target");
+  }
   function ransomInto(el,word,seed){
     el.textContent="";const r=rnd(seed);
     word.toUpperCase().split(" ").forEach(part=>{
