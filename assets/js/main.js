@@ -138,7 +138,9 @@
   const nTitle=document.getElementById("n-title"),nMsg=document.getElementById("n-msg"),nName=document.getElementById("n-name");
   const mailbtn=document.getElementById("mailbtn"),gmailbtn=document.getElementById("gmailbtn"),status=document.getElementById("status");
   /* phones: Gmail web compose doesn't work well, use the mail app instead */
-  const isPhone=/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)||(matchMedia("(pointer:coarse)").matches&&innerWidth<1024);
+  const isPhone=/Android|iPhone|iPad|iPod|Mobile|Tablet|Silk|Kindle/i.test(navigator.userAgent)
+    ||(/Macintosh/.test(navigator.userAgent)&&navigator.maxTouchPoints>1) /* iPad that pretends to be a Mac */
+    ||matchMedia("(pointer:coarse)").matches;
   if(isPhone){
     gmailbtn.hidden=true;
     mailbtn.textContent="Verstuur via mail";
