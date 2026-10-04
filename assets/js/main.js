@@ -1,0 +1,190 @@
+/* ONEX — scripts */
+(function(){
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ransom headings */
+  const styles=[
+    {bg:"#cfcfcf",fg:"#141414",f:"'Abril Fatface',Georgia,serif"},
+    {bg:"#2f6fd0",fg:"#dce7f6",f:"'Bowlby One','Arial Black',sans-serif"},
+    {bg:"#4a2a22",fg:"#ece6d8",f:"'Abril Fatface',Georgia,serif"},
+    {bg:"#e8b021",fg:"#d6312a",f:"'Special Elite','Courier New',monospace"},
+    {bg:"#ece6d8",fg:"#0f0c19",f:"'Rubik Mono One','Arial Black',sans-serif"},
+    {bg:"#d6312a",fg:"#ece6d8",f:"'Playfair Display',Georgia,serif",i:1},
+    {bg:"#0f0c19",fg:"#ece6d8",f:"'Bowlby One','Arial Black',sans-serif",b:1},
+    {bg:"#c88a4b",fg:"#2a170a",f:"'Abril Fatface',Georgia,serif"}
+  ];
+  function rnd(seed){let s=seed;return()=>{s=(s*9301+49297)%233280;return s/233280}}
+  document.querySelectorAll('.ransom[data-word]').forEach(el=>{
+    const r=rnd(+el.dataset.seed||1);
+    el.dataset.word.split(" ").forEach(part=>{
+      const w=document.createElement("span");w.className="w";w.setAttribute("aria-hidden","true");
+      [...part].forEach(ch=>{
+        const st=styles[Math.floor(r()*styles.length)];
+        const rot=+(r()*12-6).toFixed(1), y=Math.round(r()*14-7);
+        const l=document.createElement("span");l.className="l";l.textContent=ch;
+        l.style.background=st.bg;l.style.color=st.fg;l.style.fontFamily=st.f;
+        if(st.i)l.style.fontStyle="italic";
+        if(st.b)l.style.border="2px solid #ece6d8";
+        l.style.transform=`rotate(${rot}deg) translateY(${y/100}em)`;
+        l.style.setProperty("--hov",`rotate(${(rot*1.8).toFixed(1)}deg) translateY(${(y*1.6)/100}em)`);
+        w.appendChild(l);
+      });
+      el.appendChild(w);
+    });
+  });
+
+  /* mobile menu */
+  const menu=document.getElementById("menu");
+  document.querySelectorAll(".nav a").forEach(a=>a.addEventListener("click",()=>menu.checked=false));
+
+  /* nav highlight */
+  const links=[...document.querySelectorAll(".nav a")];
+  const secs=links.map(a=>document.querySelector(a.getAttribute("href")));
+  function mark(){
+    const y=scrollY+innerHeight*.4;let cur=secs[0];
+    secs.forEach(s=>{if(s&&s.offsetTop<=y)cur=s});
+    links.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+cur.id));
+  }
+  const header=document.querySelector(".header");
+  function shrink(){header.classList.toggle("small",scrollY>40);
+    const max=document.documentElement.scrollHeight-innerHeight;header.style.setProperty("--sp",max>0?(scrollY/max).toFixed(4):0)}
+  addEventListener("scroll",()=>{mark();shrink()},{passive:true});mark();shrink();
+
+  /* the puppet */
+  const pup=document.getElementById("puppet"),bub=document.getElementById("bubble");
+  const lies=["Mijn code werkt altijd meteen.","Ik heb nog nooit een bug gehad.","Ik ga altijd vroeg slapen.","Ik lees altijd eerst de uitleg.","Mijn server crasht nooit.","Ik heb nog nooit iets gegoogeld.","Ik heb vroeger nooit gelogen.","Ik ben de beste developer ter wereld."];
+  const truths=["Oké oké. Ik vind programmeren gewoon leuk.","Echt waar: ik maak servers op maat.","Waarheid: je mag me altijd mailen.","Zie je, de neus krimpt."];
+  let n=0,li=0,ti=0;
+  function setNose(){
+    const v=1+n*.5;
+    pup.style.setProperty("--nose",v);pup.style.setProperty("--leaf",n>=3?1:0);
+    document.getElementById("len").textContent=Math.round(4*v);
+  }
+  function say(t){bub.textContent=t;bub.classList.remove("pop");void bub.offsetWidth;bub.classList.add("pop")}
+  function lie(){
+    if(n>=8){say("Ok stop, mijn neus is lang genoeg.");return}
+    n++;say(lies[li++%lies.length]);setNose();
+  }
+  pup.addEventListener("click",lie);
+  document.getElementById("lie").addEventListener("click",lie);
+  document.getElementById("truth").addEventListener("click",()=>{n=0;say(truths[ti++%truths.length]);setNose()});
+  document.getElementById("dance").addEventListener("click",()=>{
+    say("Kijk mij gaan!");const rig=document.getElementById("rig");[pup,rig].forEach(e=>{e.classList.remove("dance");void e.offsetWidth;e.classList.add("dance")});
+    setTimeout(()=>{pup.classList.remove("dance");rig.classList.remove("dance")},1500);
+  });
+  setNose();
+
+  /* eyes follow the mouse */
+  const root=document.documentElement;
+  addEventListener("pointermove",e=>{
+    const r=pup.getBoundingClientRect();
+    const hx=r.left+r.width/2,hy=r.top+r.height*.3;
+    const dx=Math.max(-1,Math.min(1,(e.clientX-hx)/300)),dy=Math.max(-1,Math.min(1,(e.clientY-hy)/300));
+    root.style.setProperty("--lx",(dx*3.5).toFixed(2)+"px");root.style.setProperty("--ly",(dy*3).toFixed(2)+"px");
+  },{passive:true});
+
+  /* age updates by itself every 21 March */
+  (function(){
+    const d=new Date(),y=d.getFullYear(),m=d.getMonth(),day=d.getDate();
+    const had=(m>2)||(m===2&&day>=21);
+    document.getElementById("age").textContent=y-2009-(had?0:1);
+    if(m===2&&day===21){document.getElementById("bday").hidden=false;say("Vandaag ben ik jarig! Dat is geen leugen.")}
+  })();
+
+  document.getElementById("yr").textContent=new Date().getFullYear();
+  const fm=document.getElementById("footmail");
+  fm.addEventListener("click",()=>{const sp=fm.querySelector("span"),t="xeno.becaus1@gmail.com";
+    const done=()=>{sp.textContent="gekopieerd!";setTimeout(()=>sp.textContent=t,1600)};
+    try{navigator.clipboard.writeText(t).then(done,()=>{})}catch(e){}});
+
+  /* tab title when you leave */
+  const t0=document.title;
+  document.addEventListener("visibilitychange",()=>{document.title=document.hidden?"kom terug, ik lieg niet":t0});
+
+  /* strings follow hands and knees */
+  const all=pup.querySelector(".all"),strs=[...pup.querySelectorAll(".str")];
+  const pt=pup.createSVGPoint();
+  (function tie(){
+    const inv=all.getCTM().inverse();
+    strs.forEach(l=>{
+      const g=pup.querySelector("."+l.dataset.limb);
+      pt.x=+l.dataset.px;pt.y=+l.dataset.py;
+      const p=pt.matrixTransform(inv.multiply(g.getCTM()));
+      l.setAttribute("x2",p.x.toFixed(1));l.setAttribute("y2",p.y.toFixed(1));
+    });
+    requestAnimationFrame(tie);
+  })();
+
+  /* skills: noses grow when visible */
+  function grow(sk){
+    if(sk.classList.contains("grown"))return;
+    sk.classList.add("grown");
+    const p=sk.querySelector(".pct"),to=+p.dataset.to;
+    if(reduce){p.textContent=to+"%";return}
+    const t0=performance.now();
+    (function f(t){const k=Math.min(1,(t-t0)/1600),e=1-Math.pow(1-k,3);p.textContent=Math.round(to*e)+"%";if(k<1)requestAnimationFrame(f)})(t0);
+  }
+  const skills=[...document.querySelectorAll(".skill")];
+  if("IntersectionObserver" in window){
+    const box=document.querySelector(".skills");
+    const growAll=()=>skills.forEach((sk,i)=>setTimeout(()=>grow(sk),i*130));
+    const io=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){growAll();io.disconnect()}},{threshold:.15});
+    io.observe(box);
+  }else skills.forEach(grow);
+
+  /* contact: build your own letter */
+  const TO="xeno.becaus1@gmail.com";
+  const fName=document.getElementById("f-name"),fMsg=document.getElementById("f-msg"),note=document.getElementById("note");
+  const nTitle=document.getElementById("n-title"),nMsg=document.getElementById("n-msg"),nName=document.getElementById("n-name");
+  const mailbtn=document.getElementById("mailbtn"),gmailbtn=document.getElementById("gmailbtn"),status=document.getElementById("status");
+  function ransomInto(el,word,seed){
+    el.textContent="";const r=rnd(seed);
+    word.toUpperCase().split(" ").forEach(part=>{
+      const w=document.createElement("span");w.className="w";
+      [...part].forEach(ch=>{
+        const st=styles[Math.floor(r()*styles.length)];
+        const l=document.createElement("span");l.className="l";l.textContent=ch;
+        l.style.background=st.bg;l.style.color=st.fg;l.style.fontFamily=st.f;
+        if(st.i)l.style.fontStyle="italic";
+        l.style.transform=`rotate(${(r()*10-5).toFixed(1)}deg)`;
+        w.appendChild(l);
+      });
+      el.appendChild(w);
+    });
+  }
+  function what(){return document.querySelector('input[name="what"]:checked').value}
+  function body(){
+    const n=fName.value.trim(),m=fMsg.value.trim();
+    const w=what(),q=w==="Een vraag";
+    return `Hoi ONEX,\n\n${q?"Ik heb een vraag:":"Ik wil graag: "+w}\n\n${m||"(typ hier je bericht)"}\n\nGroetjes,\n${n||"..."}`;
+  }
+  let lastWhat="";
+  function update(){
+    const w=what();
+    if(w!==lastWhat){ransomInto(nTitle,w,w.length*7+3);lastWhat=w;note.classList.remove("pop");void note.offsetWidth;note.classList.add("pop")}
+    const m=fMsg.value.trim();
+    nMsg.textContent=m||"Typ hier je vraag of wat je wilt laten maken.";nMsg.classList.toggle("empty",!m);
+    nName.textContent=fName.value.trim()||"...";
+    const su=encodeURIComponent(w==="Een vraag"?"Vraag via je website":"Project: "+w),bo=encodeURIComponent(body());
+    mailbtn.href=`mailto:${TO}?subject=${su}&body=${bo}`;
+    gmailbtn.href=`https://mail.google.com/mail/?view=cm&fs=1&to=${TO}&su=${su}&body=${bo}`;
+  }
+  document.getElementById("maker").addEventListener("input",update);
+  document.getElementById("maker").addEventListener("submit",e=>e.preventDefault());
+  const tooLong=()=>encodeURIComponent(body()).length>6000;
+  gmailbtn.addEventListener("click",()=>{status.textContent=tooLong()?"Je bericht is erg lang. Als het in Gmail afgekapt is, gebruik dan Kopieer en plak het erin.":"Gmail opent in een nieuw tabblad met je brief al ingevuld."});
+  mailbtn.addEventListener("click",()=>{status.textContent="Je mail-app zou nu moeten openen. Gebeurt er niets? Gebruik Kopieer en mail het zelf."});
+  function copyText(t,el,ok){
+    const sel=()=>{if(!el)return;const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);status.textContent="Geselecteerd, druk Ctrl+C."};
+    try{navigator.clipboard.writeText(t).then(()=>status.textContent=ok,sel)}catch(e){sel()}
+  }
+  document.getElementById("copymsg").addEventListener("click",()=>copyText(body(),nMsg,"Gekopieerd! Plak het in een mail of op Discord."));
+  const em=document.getElementById("email");
+  document.getElementById("copy").addEventListener("click",()=>copyText(TO,em,"Mailadres gekopieerd!"));
+  update();
+  /* "Bespreken" buttons pick that project in the letter */
+  document.querySelectorAll("[data-pick]").forEach(btn=>btn.addEventListener("click",()=>{
+    const r=document.querySelector(`input[name="what"][value="${btn.dataset.pick}"]`);
+    if(r){r.checked=true;update();status.textContent="";}
+  }));
+})();
