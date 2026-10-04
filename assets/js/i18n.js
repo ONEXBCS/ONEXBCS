@@ -3,7 +3,7 @@
 (function(){
   const EN={
     /* nav & algemeen */
-    "Home":"Home","Wie ben ik":"About me","Skills":"Skills","Laten maken":"Hire me","Socials":"Socials","Contact":"Contact",
+    "Home":"Home","Wie ben ik":"About me","Skills":"Skills","Laten maken":"Services","Socials":"Socials","Contact":"Contact",
     "Menu openen":"Open menu","Hoofdmenu":"Main menu","Terug naar home":"Back to home",
     "Kies taal":"Choose language",
 
@@ -12,7 +12,7 @@
     "Ik bouw wat jij":"I build what you",
     "bedenkt":"imagine",
     "Developer en designer. Heb je een idee? Dan maak ik het, groot of klein.":"Developer and designer. Got an idea? I'll build it, big or small.",
-    "Iets laten maken":"Hire me",
+    "Iets laten maken":"Get something built",
     "Wie ben ik?":"Who am I?",
     "Klik op mij. Ik lieg nooit, echt.":"Click me. I never lie, really.",
     "Houten marionet, klik om zijn neus te laten groeien":"Wooden puppet, click to make his nose grow",
@@ -54,7 +54,7 @@
     "Ik leer nog elke dag bij, dus dit gaat nog omhoog.":"I'm still learning every day, so these will keep going up.",
 
     /* laten maken */
-    "LATEN MAKEN":"HIRE ME",
+    "LATEN MAKEN":"SERVICES",
     "// wil je iets laten bouwen? dit kan ik voor je doen":"// want something built? here's what I can do",
     "Je eigen RP server voor GTA V.":"Your own RP server for GTA V.",
     "server opzetten":"server setup","scripts en menu's":"scripts and menus","jobs, auto's, database":"jobs, cars, database",
