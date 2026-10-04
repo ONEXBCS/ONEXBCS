@@ -13,7 +13,7 @@
 <title>ONEX · Pinokkio's werkplaats</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bowlby+One&family=Familjen+Grotesk:wght@400;500;700&family=Special+Elite&family=Rubik+Mono+One&family=Playfair+Display:ital,wght@1,900&display=swap">
-<link rel="stylesheet" href="assets/css/style.css?v=7">
+<link rel="stylesheet" href="assets/css/style.css?v=9">
 </head>
 <body>
 
@@ -107,6 +107,7 @@
       <a href="#socials">Socials</a>
       <a href="#contact" class="cta">Contact</a>
     </nav>
+    <div class="lang" role="group" aria-label="Kies taal"><button type="button" data-lang="nl" aria-pressed="true">NL</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
   </div>
   <div class="progress" aria-hidden="true"></div>
 </header>
@@ -137,7 +138,7 @@
 
       <div class="show">
         <div class="stage">
-          <div class="bubble" id="bubble" aria-live="polite">Klik op mij. Ik lieg nooit, echt.</div>
+          <div class="bubble" id="bubble" data-noi18n aria-live="polite">Klik op mij. Ik lieg nooit, echt.</div>
           <div class="rig" id="rig">
           <svg class="puppet" id="puppet" viewBox="0 -118 320 598" role="img" aria-label="Houten marionet, klik om zijn neus te laten groeien">
             <defs><linearGradient id="gBar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e3a466"/><stop offset=".5" stop-color="#c88a4b"/><stop offset="1" stop-color="#7e4a22"/></linearGradient></defs>
@@ -359,7 +360,7 @@
             </div>
             <p class="send-alt">Liever een DM? Stuur je bericht op <a href="https://discordapp.com/users/730111801668141116" target="_blank" rel="noopener">Discord</a>. Gebruik "Kopieer" en plak het daar.</p>
           </div>
-          <p class="status" id="status" aria-live="polite"></p>
+          <p class="status" id="status" data-noi18n aria-live="polite"></p>
         </form>
 
         <div class="note-wrap" aria-live="polite">
@@ -367,8 +368,8 @@
             <i class="tape"></i>
             <div class="note-to">AAN: <b>ONEX</b></div>
             <div class="ransom note-title" id="n-title"></div>
-            <p class="note-msg" id="n-msg">Typ hier je vraag of wat je wilt laten maken.</p>
-            <div class="note-from">groetjes, <b id="n-name">...</b></div>
+            <p class="note-msg" id="n-msg" data-noi18n>Typ hier je vraag of wat je wilt laten maken.</p>
+            <div class="note-from">groetjes, <b id="n-name" data-noi18n>...</b></div>
             <div class="seal" aria-hidden="true">
               <svg viewBox="88 40 150 150"><use href="#pHead" width="320" height="560"/></svg>
             </div>
@@ -426,7 +427,8 @@
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=8"></script>
+<script src="assets/js/i18n.js?v=9"></script>
+<script src="assets/js/main.js?v=9"></script>
 
 </body>
 </html>

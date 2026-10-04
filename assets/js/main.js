@@ -14,9 +14,10 @@
     {bg:"#c88a4b",fg:"#2a170a",f:"'Abril Fatface',Georgia,serif"}
   ];
   function rnd(seed){let s=seed;return()=>{s=(s*9301+49297)%233280;return s/233280}}
-  document.querySelectorAll('.ransom[data-word]').forEach(el=>{
+  function renderRansoms(){document.querySelectorAll('.ransom[data-word]').forEach(el=>{
+    el.textContent="";
     const r=rnd(+el.dataset.seed||1);
-    el.dataset.word.split(" ").forEach(part=>{
+    T(el.dataset.word).split(" ").forEach(part=>{
       const w=document.createElement("span");w.className="w";w.setAttribute("aria-hidden","true");
       [...part].forEach(ch=>{
         const st=styles[Math.floor(r()*styles.length)];
@@ -31,7 +32,8 @@
       });
       el.appendChild(w);
     });
-  });
+  });}
+  renderRansoms();
 
   /* mobile menu */
   const menu=document.getElementById("menu");
@@ -60,7 +62,8 @@
     pup.style.setProperty("--nose",v);pup.style.setProperty("--leaf",n>=3?1:0);
     document.getElementById("len").textContent=Math.round(4*v);
   }
-  function say(t){bub.textContent=t;bub.classList.remove("pop");void bub.offsetWidth;bub.classList.add("pop")}
+  let sayKey="Klik op mij. Ik lieg nooit, echt.";
+  function say(t){sayKey=t;bub.textContent=T(t);bub.classList.remove("pop");void bub.offsetWidth;bub.classList.add("pop")}
   function lie(){
     if(n>=8){say("Ok stop, mijn neus is lang genoeg.");return}
     n++;say(lies[li++%lies.length]);setNose();
@@ -94,12 +97,12 @@
   document.getElementById("yr").textContent=new Date().getFullYear();
   const fm=document.getElementById("footmail");
   fm.addEventListener("click",()=>{const sp=fm.querySelector("span"),t="xeno.becaus1@gmail.com";
-    const done=()=>{sp.textContent="gekopieerd!";setTimeout(()=>sp.textContent=t,1600)};
+    const done=()=>{sp.textContent=T("gekopieerd!");setTimeout(()=>sp.textContent=t,1600)};
     try{navigator.clipboard.writeText(t).then(done,()=>{})}catch(e){}});
 
   /* tab title when you leave */
-  const t0=document.title;
-  document.addEventListener("visibilitychange",()=>{document.title=document.hidden?"kom terug, ik lieg niet":t0});
+  const TITLE="ONEX · Pinokkio's werkplaats";
+  document.addEventListener("visibilitychange",()=>{document.title=T(document.hidden?"kom terug, ik lieg niet":TITLE)});
 
   /* strings follow hands and knees */
   const all=pup.querySelector(".all"),strs=[...pup.querySelectorAll(".str")];
@@ -143,7 +146,7 @@
     ||matchMedia("(pointer:coarse)").matches;
   if(isPhone){
     gmailbtn.hidden=true;
-    mailbtn.textContent="Verstuur via mail";
+    mailbtn.textContent=T("Verstuur via mail");
     mailbtn.classList.remove("ghost");mailbtn.classList.add("red");
     mailbtn.removeAttribute("target");
   }
@@ -166,27 +169,28 @@
   function body(){
     const n=fName.value.trim(),m=fMsg.value.trim();
     const w=what(),q=w==="Een vraag";
-    return `Hoi ONEX,\n\n${q?"Ik heb een vraag:":"Ik wil graag: "+w}\n\n${m||"(typ hier je bericht)"}\n\nGroetjes,\n${n||"..."}`;
+    return `${T("Hoi ONEX,")}\n\n${q?T("Ik heb een vraag:"):T("Ik wil graag:")+" "+T(w)}\n\n${m||T("(typ hier je bericht)")}\n\n${T("Groetjes,")}\n${n||"..."}`;
   }
   let lastWhat="";
   function update(){
     const w=what();
-    if(w!==lastWhat){ransomInto(nTitle,w,w.length*7+3);lastWhat=w;note.classList.remove("pop");void note.offsetWidth;note.classList.add("pop")}
+    const key=w+getLang();
+    if(key!==lastWhat){ransomInto(nTitle,T(w),w.length*7+3);lastWhat=key;note.classList.remove("pop");void note.offsetWidth;note.classList.add("pop")}
     const m=fMsg.value.trim();
-    nMsg.textContent=m||"Typ hier je vraag of wat je wilt laten maken.";nMsg.classList.toggle("empty",!m);
+    nMsg.textContent=m||T("Typ hier je vraag of wat je wilt laten maken.");nMsg.classList.toggle("empty",!m);
     nName.textContent=fName.value.trim()||"...";
-    const su=encodeURIComponent(w==="Een vraag"?"Vraag via je website":"Project: "+w),bo=encodeURIComponent(body());
+    const su=encodeURIComponent(w==="Een vraag"?T("Vraag via je website"):"Project: "+T(w)),bo=encodeURIComponent(body());
     mailbtn.href=`mailto:${TO}?subject=${su}&body=${bo}`;
     gmailbtn.href=`https://mail.google.com/mail/?view=cm&fs=1&to=${TO}&su=${su}&body=${bo}`;
   }
   document.getElementById("maker").addEventListener("input",update);
   document.getElementById("maker").addEventListener("submit",e=>e.preventDefault());
   const tooLong=()=>encodeURIComponent(body()).length>6000;
-  gmailbtn.addEventListener("click",()=>{status.textContent=tooLong()?"Je bericht is erg lang. Als het in Gmail afgekapt is, gebruik dan Kopieer en plak het erin.":"Gmail opent in een nieuw tabblad met je brief al ingevuld."});
-  mailbtn.addEventListener("click",()=>{status.textContent="Je mail-app zou nu moeten openen. Gebeurt er niets? Gebruik Kopieer en mail het zelf."});
+  gmailbtn.addEventListener("click",()=>{status.textContent=T(tooLong()?"Je bericht is erg lang. Als het in Gmail afgekapt is, gebruik dan Kopieer en plak het erin.":"Gmail opent in een nieuw tabblad met je brief al ingevuld.")});
+  mailbtn.addEventListener("click",()=>{status.textContent=T("Je mail-app zou nu moeten openen. Gebeurt er niets? Gebruik Kopieer en mail het zelf.")});
   function copyText(t,el,ok){
-    const sel=()=>{if(!el)return;const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);status.textContent="Geselecteerd, druk Ctrl+C."};
-    try{navigator.clipboard.writeText(t).then(()=>status.textContent=ok,sel)}catch(e){sel()}
+    const sel=()=>{if(!el)return;const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);status.textContent=T("Geselecteerd, druk Ctrl+C.")};
+    try{navigator.clipboard.writeText(t).then(()=>status.textContent=T(ok),sel)}catch(e){sel()}
   }
   document.getElementById("copymsg").addEventListener("click",()=>copyText(body(),nMsg,"Gekopieerd! Plak het in een mail of op Discord."));
   const em=document.getElementById("email");
@@ -197,4 +201,16 @@
     const r=document.querySelector(`input[name="what"][value="${btn.dataset.pick}"]`);
     if(r){r.checked=true;update();status.textContent="";}
   }));
+
+  /* language NL / EN */
+  document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
+  document.addEventListener("langchange",()=>{
+    renderRansoms();
+    bub.textContent=T(sayKey);
+    if(isPhone)mailbtn.textContent=T("Verstuur via mail");
+    status.textContent="";
+    document.title=T(TITLE);
+    update();
+  });
+  applyLang();
 })();

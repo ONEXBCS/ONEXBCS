@@ -394,4 +394,16 @@ html,.field textarea{scrollbar-width:thin;scrollbar-color:var(--yolk) var(--ink-
   .about{justify-items:center}
   .about > div:first-child{max-width:62ch}
 }
+
+/* language switch */
+.nav{margin-left:auto}
+.lang{display:flex;margin-left:18px;border:1px solid var(--line);background:var(--ink-2);padding:3px;gap:2px;transform:rotate(-1.5deg)}
+.lang button{appearance:none;border:0;background:none;color:var(--muted);font-family:var(--f-block);font-size:12px;letter-spacing:.08em;padding:6px 9px;cursor:pointer;transition:background .2s,color .2s}
+.lang button:hover{color:var(--text)}
+.lang button[aria-pressed="true"]{background:var(--paper);color:var(--ink)}
+@media (max-width:860px){
+  .nav{width:auto}
+  .lang{margin-left:auto;margin-right:12px;order:2}
+  .burger{order:3}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}.skill .fill{width:calc(var(--p) * 1%)}}
