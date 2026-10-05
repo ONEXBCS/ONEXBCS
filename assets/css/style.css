@@ -455,6 +455,7 @@ html,.field textarea{scrollbar-width:thin;scrollbar-color:var(--yolk) var(--ink-
 @media (max-width:1099px),(pointer:coarse){.buddy{display:none}}
 /* on computers: keep the right part of the navbar free so he lies next to the menu, not on it */
 @media (min-width:1100px) and (pointer:fine){
+  .progress{display:none} /* the toymaker's reel already shows how far you scrolled */
   .header .wrap{padding-right:max(clamp(20px,5vw,56px),calc(clamp(16px,2.4vw,34px) + 2.25 * clamp(40px,4vw,54px) + 14px - max(0px,(100vw - 1180px) / 2)))}
 }
 @media (prefers-reduced-motion:reduce){.buddy{transition:none}.mk-head,.mk-leg,.mk-eyes{animation:none}}
