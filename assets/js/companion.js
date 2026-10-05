@@ -102,7 +102,7 @@
     wie:"Dit ben ik!",
     skills:"Kijk, mijn skills!",
     bouwen:"Wat zal ik voor je bouwen?",
-    socials:"Volg me!",
+    socials:"Hier vind je me!",
     contact:"Stuur me een brief!"
   };
   const ids=Object.keys(LINES);

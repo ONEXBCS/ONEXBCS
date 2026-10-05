@@ -72,7 +72,7 @@
     "Contacteer me":"Contact me",
 
     /* socials */
-    "// volg me, ik volg misschien terug":"// follow me, I might follow back",
+    "// hier vind je me online":"// where to find me online",
     "playlists":"playlists","stuur een dm":"send a dm",
 
     /* contact */
@@ -93,7 +93,7 @@
 
     /* footer */
     "Servers, games en websites op maat. Gemaakt door Xeno aka ONEX, zonder touwtjes.":"Custom servers, games and websites. Made by Xeno aka ONEX, no strings attached.",
-    "Footer":"Footer","Pagina's":"Pages","Volg mij":"Follow me","Mail mij":"Email me",
+    "Footer":"Footer","Pagina's":"Pages","Mijn socials":"My socials","Mail mij":"Email me",
     "Klik om te kopiëren":"Click to copy",
     "Geen enkele leugen op deze site":"Not a single lie on this site",
     "*behalve wat Pinokkio zegt":"*except what Pinocchio says",
@@ -131,7 +131,7 @@
     "Gekopieerd! Plak het in een mail of op Discord.":"Copied! Paste it in an email or on Discord.",
     "Mailadres gekopieerd!":"Email address copied!",
     "Dit ben ik!":"That's me!","Kijk, mijn skills!":"Check out my skills!","Wat zal ik voor je bouwen?":"What shall I build for you?",
-    "Volg me!":"Follow me!","Krekel":"Cricket","Tsjirp!":"Chirp!","Wees eerlijk, Pinokkio!":"Be honest, Pinocchio!","Ik hou hem in de gaten.":"I'm keeping an eye on him.","Klik maar op Contact!":"Go ahead, click Contact!","Je hebt alles gezien! Tsjirp!":"You've seen it all! Chirp!","Een liedje voor jou!":"A little song for you!","Stuur me een brief!":"Send me a letter!","Terug naar boven!":"Back to the top!","Pinokkio, kom terug naar boven!":"Pinocchio, come back up here!","Ik kom zo, papa!":"Coming, papa!"
+    "Hier vind je me!":"Find me here!","Krekel":"Cricket","Tsjirp!":"Chirp!","Wees eerlijk, Pinokkio!":"Be honest, Pinocchio!","Ik hou hem in de gaten.":"I'm keeping an eye on him.","Klik maar op Contact!":"Go ahead, click Contact!","Je hebt alles gezien! Tsjirp!":"You've seen it all! Chirp!","Een liedje voor jou!":"A little song for you!","Stuur me een brief!":"Send me a letter!","Terug naar boven!":"Back to the top!","Pinokkio, kom terug naar boven!":"Pinocchio, come back up here!","Ik kom zo, papa!":"Coming, papa!"
   };
 
   let lang="nl";
