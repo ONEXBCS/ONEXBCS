@@ -12,60 +12,69 @@
   <defs>
     <radialGradient id="mkSkin" cx=".42" cy=".38" r=".7"><stop offset="0" stop-color="#ffd9bd"/><stop offset=".7" stop-color="#f0b48e"/><stop offset="1" stop-color="#d98e66"/></radialGradient>
     <linearGradient id="mkWood" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e3a466"/><stop offset="1" stop-color="#7e4a22"/></linearGradient>
-    <linearGradient id="mkPants" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3360"/><stop offset="1" stop-color="#241f3d"/></linearGradient>
-    <pattern id="mkStripe" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(90)"><rect width="8" height="8" fill="#ece6d8"/><rect width="4" height="8" fill="#d6312a"/></pattern>
+    <linearGradient id="mkPants" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6b5a45"/><stop offset="1" stop-color="#4a3c2c"/></linearGradient>
+    <linearGradient id="mkStripe" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1e7d2"/><stop offset="1" stop-color="#cdbf9f"/></linearGradient>
+    <linearGradient id="mkWig" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9c96a"/><stop offset="1" stop-color="#c39a3a"/></linearGradient>
     <linearGradient id="mkHat" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4b8be8"/><stop offset="1" stop-color="#1f4f9e"/></linearGradient>
   </defs>
   <!-- legs kicking up in the air behind him -->
   <g class="mk-leg mk-leg1">
     <path d="M58 74H34" stroke="url(#mkPants)" stroke-width="13" stroke-linecap="round"/>
     <path d="M34 74L22 44" stroke="url(#mkPants)" stroke-width="11" stroke-linecap="round"/>
-    <path d="M14 40c0-6 6-9 12-7l6 3c3 2 2 6-2 6H16c-1 0-2-1-2-2z" fill="#d6312a" stroke="#3d200c" stroke-width="1.6"/>
-    <path d="M15 42h16" stroke="#ece6d8" stroke-width="2.4"/>
+    <path d="M13 41c0-7 6-10 13-8l7 3c3 2 2 6-2 6H15c-1 0-2-0-2-1z" fill="url(#mkWood)" stroke="#3d200c" stroke-width="1.6"/>
   </g>
   <g class="mk-leg mk-leg2">
     <path d="M62 73.5H42" stroke="url(#mkPants)" stroke-width="13" stroke-linecap="round"/>
     <path d="M42 73.5l8-28" stroke="url(#mkPants)" stroke-width="11" stroke-linecap="round"/>
-    <path d="M42 40c1-6 8-8 13-5l5 4c3 2 1 6-3 5l-13-1c-1 0-2-2-2-3z" fill="#d6312a" stroke="#3d200c" stroke-width="1.6"/>
-    <path d="M43 42l15 1" stroke="#ece6d8" stroke-width="2.4"/>
+    <path d="M41 41c1-7 8-9 14-6l6 4c3 2 1 6-3 5l-15-1c-1 0-2-1-2-2z" fill="url(#mkWood)" stroke="#3d200c" stroke-width="1.6"/>
   </g>
   <!-- body lying on the bar: striped shirt, braces -->
   <path d="M52 80c-2-16 10-26 32-26h22c18 0 28 10 28 26z" fill="url(#mkStripe)" stroke="#3d200c" stroke-width="1.8"/>
-  <path d="M74 56l-6 24M104 55l2 25" stroke="#e8b021" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="68" cy="78" r="2" fill="#7a5a08"/><circle cx="106" cy="78" r="2" fill="#7a5a08"/>
+  <path d="M70 80c0-10 4-22 14-24h18c8 2 12 12 12 24z" fill="#8a5a33" stroke="#4a2a10" stroke-width="1.6"/>
+  <path d="M84 56l-4-6M102 56l3-6" stroke="#4a2a10" stroke-width="2.2" stroke-linecap="round"/>
+  <rect x="84" y="66" width="16" height="9" rx="1.5" fill="#6e4524" stroke="#4a2a10" stroke-width="1"/>
+  <path d="M88 66v-4M92 66v-6" stroke="#e8b021" stroke-width="1.6" stroke-linecap="round"/>
   <!-- arms hanging over the edge, holding the reel -->
   <path class="mk-arm" d="M118 66c8 4 12 14 12 24" stroke="url(#mkStripe)" stroke-width="12" fill="none" stroke-linecap="round"/>
   <path d="M118 66c8 4 12 14 12 24" stroke="#3d200c" stroke-width="1.4" fill="none" opacity=".35"/>
   <!-- head (big and round) -->
   <g class="mk-head">
-    <ellipse cx="128" cy="50" rx="6" ry="8" fill="url(#mkSkin)" stroke="#3d200c" stroke-width="1.6"/>
-    <ellipse cx="180" cy="50" rx="6" ry="8" fill="url(#mkSkin)" stroke="#3d200c" stroke-width="1.6"/>
-    <circle cx="154" cy="48" r="27" fill="url(#mkSkin)" stroke="#3d200c" stroke-width="1.8"/>
-    <!-- short neat beard -->
-    <path d="M129 52c1 16 11 25 25 25s24-9 25-25c-4 6-9 8-14 8-4-4-18-4-22 0-5 0-10-2-14-8z" fill="#ddd9d2" stroke="#9c978f" stroke-width="1.4"/>
-    <path d="M140 66q2 4 1 7M154 69v6M168 66q-2 4-1 7" stroke="#b9b4ac" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+    <ellipse cx="129" cy="51" rx="6" ry="8" fill="url(#mkSkin)" stroke="#3d200c" stroke-width="1.6"/>
+    <ellipse cx="179" cy="51" rx="6" ry="8" fill="url(#mkSkin)" stroke="#3d200c" stroke-width="1.6"/>
+    <path d="M128 46c0-19 12-29 26-29s26 10 26 29c0 15-10 30-26 30s-26-15-26-30z" fill="url(#mkSkin)" stroke="#3d200c" stroke-width="1.8"/>
+    <!-- old age: forehead lines, crow's feet, bags under the eyes -->
+    <path d="M140 31q14-4 28 0M142 35q12-3 24 0M145 39q9-2 18 0" stroke="#b86f4c" stroke-width="1.3" fill="none" opacity=".75"/>
+    <path d="M134 47l-4-2M134 50l-4 0M174 47l4-2M174 50l4 0" stroke="#b86f4c" stroke-width="1.1" stroke-linecap="round" opacity=".8"/>
+    <path d="M140 57q5 2 10 0M158 57q5 2 10 0" stroke="#c27a57" stroke-width="1.1" fill="none" opacity=".8"/>
+    <path d="M141 64q-3 4-1 8M167 64q3 4 1 8" stroke="#c27a57" stroke-width="1.2" fill="none" opacity=".6"/>
+    <!-- grey hair showing under the wig at the temples -->
+    <path d="M131 44c-2 6-1 12 2 16M177 44c2 6 1 12-2 16" stroke="#a9a49b" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+    <!-- grey stubble on chin -->
+    <path d="M136 62c4 9 10 13 18 13s14-4 18-13c-5 4-11 6-18 6s-13-2-18-6z" fill="#a9a49b" opacity=".7"/>
     <!-- cheeks -->
-    <ellipse cx="138" cy="54" rx="5.5" ry="3.6" fill="#ef8b78" opacity=".55"/>
-    <ellipse cx="170" cy="54" rx="5.5" ry="3.6" fill="#ef8b78" opacity=".55"/>
-    <!-- smile -->
-    <path d="M146 62q8 6 16 0" stroke="#7a3b2a" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-    <!-- nose -->
-    <ellipse cx="154" cy="54" rx="6" ry="5" fill="#f19b84" stroke="#a2543f" stroke-width="1.2"/>
-    <ellipse cx="152" cy="52.5" rx="2" ry="1.3" fill="#fff" opacity=".6"/>
-    <!-- bushy brows -->
-    <path d="M136 36q6-5 13-1M159 35q7-4 13 1" stroke="#9c978f" stroke-width="3.4" fill="none" stroke-linecap="round"/>
-    <!-- big round glasses, eyes looking down at Pinokkio -->
-    <circle cx="144" cy="45" r="8" fill="#ffffff" fill-opacity=".25" stroke="#3d200c" stroke-width="2"/>
-    <circle cx="164" cy="45" r="8" fill="#ffffff" fill-opacity=".25" stroke="#3d200c" stroke-width="2"/>
-    <path d="M152 45h4" stroke="#3d200c" stroke-width="2"/>
-    <g class="mk-eyes"><circle cx="143" cy="48" r="2.6" fill="#2a1d14"/><circle cx="163" cy="48" r="2.6" fill="#2a1d14"/>
-      <circle cx="144" cy="47" r=".9" fill="#fff"/><circle cx="164" cy="47" r=".9" fill="#fff"/></g>
-    <!-- floppy beanie -->
-    <path d="M127 38c0-18 12-28 28-28 14 0 24 8 26 22z" fill="url(#mkHat)" stroke="#173a73" stroke-width="1.8"/>
-    <path d="M135 24q18-6 40 2" stroke="#ece6d8" stroke-width="3.2" fill="none"/>
-    <path d="M155 10c10-6 22-4 28 6" stroke="url(#mkHat)" stroke-width="9" fill="none" stroke-linecap="round"/>
-    <circle cx="186" cy="20" r="6" fill="#d6312a" stroke="#7a1a14" stroke-width="1.4"/>
-    <rect x="125" y="32" width="58" height="9" rx="4" fill="#e8b021" stroke="#7a5a08" stroke-width="1.4" transform="rotate(-6 154 36)"/>
+    <ellipse cx="139" cy="56" rx="5" ry="3.4" fill="#ef8b78" opacity=".5"/>
+    <ellipse cx="169" cy="56" rx="5" ry="3.4" fill="#ef8b78" opacity=".5"/>
+    <!-- mouth with a small drooping grey moustache -->
+    <path d="M148 67q6 3 12 0" stroke="#7a3b2a" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M143 64c4-3 8-3 11-1 3-2 7-2 11 1-2 3-5 3-8 2-1 0-2 0-3 1-1-1-2-1-3-1-3 1-6 1-8-2z" fill="#bdb8b0" stroke="#8d887f" stroke-width="1"/>
+    <!-- long nose -->
+    <path d="M151 47c1 6 1 10-2 13 3 2 9 2 11 0-3-3-3-8-2-13z" fill="#f2a487" stroke="#a2543f" stroke-width="1.2"/>
+    <!-- thick grey brows -->
+    <path d="M137 41q6-5 13-1M158 40q7-4 13 1" stroke="#b5b0a7" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <!-- small round spectacles on the nose -->
+    <circle cx="145" cy="49" r="6.5" fill="#ffffff" fill-opacity=".2" stroke="#6b4a1e" stroke-width="1.8"/>
+    <circle cx="163" cy="49" r="6.5" fill="#ffffff" fill-opacity=".2" stroke="#6b4a1e" stroke-width="1.8"/>
+    <path d="M151.5 49h5" stroke="#6b4a1e" stroke-width="1.6"/>
+    <g class="mk-eyes"><circle cx="145" cy="51" r="2.3" fill="#2a1d14"/><circle cx="163" cy="51" r="2.3" fill="#2a1d14"/>
+      <circle cx="145.8" cy="50.2" r=".8" fill="#fff"/><circle cx="163.8" cy="50.2" r=".8" fill="#fff"/></g>
+    <!-- the famous yellow wig ("Polendina") -->
+    <path d="M124 50c-6-8-4-20 2-26 2-10 12-15 20-13 6-6 18-6 24 0 9-1 16 6 16 14 6 6 6 17 0 25-2-7-5-11-9-13 0-8-6-14-14-15-5 4-13 4-18 0-8 1-14 7-14 15-4 2-6 7-7 13z" fill="url(#mkWig)" stroke="#8a6410" stroke-width="1.6" stroke-linejoin="round"/>
+    <g fill="none" stroke="#b8861a" stroke-width="1.3" stroke-linecap="round">
+      <path d="M131 26q3 4 0 8M141 17q3 4 0 8M154 14q3 4 0 8M167 17q3 4 0 8M177 26q3 4 0 8"/>
+      <path d="M126 38q3 3 1 7M182 38q3 3 1 7"/>
+    </g>
+    <!-- carpenter pencil behind the ear -->
+    <g transform="rotate(-50 182 44)"><rect x="174" y="42" width="16" height="3.4" rx="1" fill="#e8b021" stroke="#7a5a08" stroke-width=".7"/><path d="M190 42l3.5 1.7-3.5 1.7z" fill="#3d200c"/></g>
   </g>
   <!-- reel -->
   <g class="mk-spool">
