@@ -168,7 +168,7 @@
     if(reduce){scrollTo({top:0,behavior:"auto"});wheeing=false;return}
     /* a slow, fun ride up that leaves a trail of "Wheeeee" behind him */
     const from=scrollY,dur=Math.min(1800,600+from*.25),t0=performance.now();
-    const word="Wheeeeeeeeeeeeeeeeeeeeeeeeee";let i=0,lastY=null;
+    let i=0,lastY=null;
     cancelAnimationFrame(wheeT);
     const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
     const step=now=>{
@@ -176,10 +176,10 @@
       scrollTo({top:Math.round(from*(1-ease(t))),behavior:"instant"});
       const r=svg.getBoundingClientRect();
       const y=Math.min(r.bottom-4,innerHeight-72); /* keep the first W on screen */
-      if(i<word.length&&(lastY===null||lastY-y>=17)){
+      if(lastY===null||lastY-y>=17){
         lastY=y;
         const l=document.createElement("span");l.className="whee";l.setAttribute("aria-hidden","true");
-        l.textContent=word[i];
+        l.textContent=i===0?"W":i===1?"h":"e";
         l.style.left=(r.left+r.width/2+Math.sin(i*1.1)*9)+"px";
         l.style.top=y+"px";
         l.style.setProperty("--r",(Math.sin(i*2.1)*12).toFixed(1)+"deg");
