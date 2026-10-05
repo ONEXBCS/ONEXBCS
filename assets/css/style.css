@@ -59,7 +59,25 @@ svg.i{width:20px;height:20px;fill:currentColor;display:block}
   box-shadow:0 6px 14px #0009;transition:transform .35s cubic-bezier(.3,1.6,.5,1);
   clip-path:polygon(2% 4%,97% 0,100% 93%,95% 100%,4% 97%,0 52%)}
 .l::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,#00000012 0 2px,transparent 2px 5px);pointer-events:none}
-.ransom:hover .l{transform:var(--hov)}
+.lp{display:inline-block;position:relative;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.lp .l{display:grid}
+.ransom:hover .lp{transform:var(--hov)}
+/* little piece of tape on each letter */
+.ltape{position:absolute;left:50%;top:-.12em;width:.62em;height:.24em;margin-left:-.31em;z-index:2;pointer-events:none;
+  background:linear-gradient(180deg,#f4ecd2d9,#e2d6b2cc);box-shadow:0 1px 2px #0005;
+  clip-path:polygon(0 8%,8% 0,16% 10%,26% 0,36% 8%,64% 4%,76% 0,86% 9%,94% 0,100% 10%,100% 92%,90% 100%,80% 90%,68% 100%,40% 94%,26% 100%,14% 90%,4% 100%,0 90%);
+  transform:rotate(var(--tr,0deg))}
+.note-title .ltape{height:.2em;top:-.1em}
+/* pasting: letter drops in, tiks down, then the tape goes on */
+.wait .lp{opacity:0}
+.pasting .lp{animation:lpDrop .42s cubic-bezier(.2,.8,.3,1) var(--d,0ms) both}
+.pasting .ltape{animation:tapeOn .26s ease-out calc(var(--d,0ms) + .3s) both}
+@keyframes lpDrop{
+  0%{opacity:0;translate:0 -.7em;scale:1.35;rotate:-8deg}
+  55%{opacity:1;translate:0 .04em;scale:.9;rotate:2deg}
+  75%{translate:0 -.03em;scale:1.04;rotate:-1deg}
+  100%{opacity:1;translate:0 0;scale:1;rotate:0deg}}
+@keyframes tapeOn{0%{opacity:0;scale:0 1}100%{opacity:1;scale:1 1}}
 
 /* header */
 .header{position:fixed;inset-inline:0;top:0;z-index:50;padding-top:env(safe-area-inset-top,0px);
