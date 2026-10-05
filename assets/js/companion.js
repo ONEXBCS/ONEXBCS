@@ -37,10 +37,8 @@
   <!-- arms hanging over the edge, holding the reel -->
   <path class="mk-arm" d="M118 66c8 4 12 14 12 24" stroke="url(#mkStripe)" stroke-width="12" fill="none" stroke-linecap="round"/>
   <path d="M118 66c8 4 12 14 12 24" stroke="#3d200c" stroke-width="1.4" fill="none" opacity=".35"/>
-  <!-- neck -->
-  <path d="M126 58c4-2 12-2 18 2l2 18h-22z" fill="url(#mkSkin)" stroke="#3d200c" stroke-width="1.5"/>
   <!-- head (big and round) -->
-  <g class="mk-head">
+  <g transform="translate(-9 5)"><g class="mk-head">
     <ellipse cx="129" cy="51" rx="6" ry="8" fill="url(#mkSkin)" stroke="#3d200c" stroke-width="1.6"/>
     <ellipse cx="179" cy="51" rx="6" ry="8" fill="url(#mkSkin)" stroke="#3d200c" stroke-width="1.6"/>
     <path d="M128 46c0-19 12-29 26-29s26 10 26 29c0 15-10 30-26 30s-26-15-26-30z" fill="url(#mkSkin)" stroke="#3d200c" stroke-width="1.8"/>
@@ -77,7 +75,7 @@
     </g>
     <!-- carpenter pencil behind the ear -->
     <g transform="rotate(-50 182 44)"><rect x="174" y="42" width="16" height="3.4" rx="1" fill="#e8b021" stroke="#7a5a08" stroke-width=".7"/><path d="M190 42l3.5 1.7-3.5 1.7z" fill="#3d200c"/></g>
-  </g>
+  </g></g>
   <!-- reel -->
   <g class="mk-spool">
     <circle cx="140" cy="98" r="10" fill="url(#mkWood)" stroke="#3d200c" stroke-width="1.6"/>
