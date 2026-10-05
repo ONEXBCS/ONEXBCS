@@ -24,8 +24,8 @@
     <path d="M15 42h16" stroke="#ece6d8" stroke-width="2.4"/>
   </g>
   <g class="mk-leg mk-leg2">
-    <path d="M62 76H42" stroke="url(#mkPants)" stroke-width="13" stroke-linecap="round"/>
-    <path d="M42 76l8-30" stroke="url(#mkPants)" stroke-width="11" stroke-linecap="round"/>
+    <path d="M62 73.5H42" stroke="url(#mkPants)" stroke-width="13" stroke-linecap="round"/>
+    <path d="M42 73.5l8-28" stroke="url(#mkPants)" stroke-width="11" stroke-linecap="round"/>
     <path d="M42 40c1-6 8-8 13-5l5 4c3 2 1 6-3 5l-13-1c-1 0-2-2-2-3z" fill="#d6312a" stroke="#3d200c" stroke-width="1.6"/>
     <path d="M43 42l15 1" stroke="#ece6d8" stroke-width="2.4"/>
   </g>
@@ -115,8 +115,8 @@
     wrap.classList.toggle("on",show);
     /* string gets longer the further you scroll */
     const top=70+wrap.querySelector(".toymaker").getBoundingClientRect().height*0.35,room=Math.max(0,innerHeight-top-wrap.querySelector(".buddy-pup").getBoundingClientRect().height-40);
-    wrap.style.setProperty("--drop",Math.round(20+p*room)+"px");
-    const drop=20+p*room;
+    const drop=show?20+p*room:0; /* rolled up while you are on home */
+    wrap.style.setProperty("--drop",Math.round(drop)+"px");
     wrap.style.setProperty("--spin",(drop*4).toFixed(1)+"deg");
     const ang=drop*4*Math.PI/180;
     const hand=wrap.querySelector(".mk-hand-crank");

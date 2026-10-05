@@ -421,13 +421,16 @@ html,.field textarea{scrollbar-width:thin;scrollbar-color:var(--yolk) var(--ink-
 @keyframes flip{from{transform:translateY(-14px) rotate(-20deg);opacity:0}}
 
 /* mini Pinokkio that follows you */
-.buddy{--bw:clamp(48px,5.6vw,78px);position:fixed;right:clamp(16px,2.4vw,34px);top:calc(var(--head) + env(safe-area-inset-top,0px));z-index:55;width:var(--bw);pointer-events:none;
-  transform:translateY(calc(-100% - var(--drop,0px) - 80px));transition:transform .7s cubic-bezier(.3,1.35,.5,1)}
-.buddy.on{transform:none}
+.buddy{--bw:clamp(48px,5.6vw,78px);position:fixed;right:clamp(16px,2.4vw,34px);top:calc(var(--head) + env(safe-area-inset-top,0px) + 1px);z-index:55;width:var(--bw);pointer-events:none}
+/* string + Pinokkio only come down once you scroll past home */
+.buddy .buddy-pup{transition:opacity .4s,transform .5s cubic-bezier(.3,1.4,.5,1)}
+.buddy:not(.on) .buddy-pup{opacity:0;transform:translateY(-40px) scale(.6)}
+.buddy:not(.on) .buddy-str{opacity:0}
+.buddy:not(.on) .buddy-bubble{opacity:0!important}
 /* toymaker lying on the navigation bar */
 .toymaker{display:block;width:calc(var(--bw) * 2.5);height:auto;overflow:visible;position:relative;z-index:1;
   margin-left:calc(var(--bw) / 2 - var(--bw) * 2.5 * 140 / 200);
-  margin-top:calc(var(--bw) * -2.5 * 74 / 200);           /* belly rests on the bottom edge of the navbar */
+  margin-top:calc(var(--bw) * -2.5 * 80 / 200);           /* belly rests on the bottom edge of the navbar */
   margin-bottom:calc(var(--bw) * -2.5 * 4 / 200);          /* string starts at the bottom of the reel */
   filter:drop-shadow(0 6px 8px #0008)}
 .mk-spool{transform-box:view-box;transform-origin:140px 98px;transform:rotate(var(--spin,0deg))}
@@ -437,7 +440,7 @@ html,.field textarea{scrollbar-width:thin;scrollbar-color:var(--yolk) var(--ink-
 @keyframes mkbob{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(4deg)}}
 .mk-leg{transform-box:view-box}
 .mk-leg1{transform-origin:34px 74px;animation:mkkick 1.6s ease-in-out infinite}
-.mk-leg2{transform-origin:42px 76px;animation:mkkick 1.6s ease-in-out infinite reverse}
+.mk-leg2{transform-origin:42px 73.5px;animation:mkkick 1.6s ease-in-out infinite reverse}
 @keyframes mkkick{0%,100%{transform:rotate(-10deg)}50%{transform:rotate(14deg)}}
 .buddy-str{display:block;width:1.5px;height:var(--drop,20px);margin:0 auto;background:linear-gradient(#e6dfcf33,#e6dfcfcc);transition:height .3s ease-out}
 .buddy-pup{display:block;width:100%;height:auto;overflow:visible;margin-top:-2px;cursor:pointer;filter:drop-shadow(0 8px 12px #0009)}
@@ -449,6 +452,10 @@ html,.field textarea{scrollbar-width:thin;scrollbar-color:var(--yolk) var(--ink-
   transition:opacity .2s,transform .3s cubic-bezier(.3,1.6,.5,1);transition-property:opacity,transform,top}
 .buddy-bubble::after{content:"";position:absolute;right:-9px;top:12px;width:12px;height:12px;background:#fff;border-right:2px solid var(--ink);border-top:2px solid var(--ink);transform:rotate(45deg)}
 .buddy.talk .buddy-bubble{opacity:1;transform:rotate(-3deg) scale(1)}
-@media (max-width:600px){.buddy{--bw:36px;right:6px}.toymaker{display:none}.buddy .buddy-bubble{top:calc(var(--drop,20px) + 4px)}.buddy-bubble{font-size:12px;max-width:130px}}
+@media (max-width:1099px),(pointer:coarse){.buddy{display:none}}
+/* on computers: keep the right part of the navbar free so he lies next to the menu, not on it */
+@media (min-width:1100px) and (pointer:fine){
+  .header .wrap{padding-right:max(clamp(20px,5vw,56px),calc(clamp(16px,2.4vw,34px) + 2.25 * clamp(48px,5.6vw,78px) + 14px - max(0px,(100vw - 1180px) / 2)))}
+}
 @media (prefers-reduced-motion:reduce){.buddy{transition:none}.mk-head,.mk-leg,.mk-eyes{animation:none}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}.skill .fill{width:calc(var(--p) * 1%)}}
