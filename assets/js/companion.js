@@ -115,7 +115,7 @@
     if(!reduce){svg.classList.remove("wave");void svg.getBoundingClientRect();svg.classList.add("wave");}
   }
 
-  let gepSaid=false,gepKey=null,gepT=null,replyT=null;
+  let ready=false,gepSaid=false,gepKey=null,gepT=null,replyT=null;
   function gepTalk(k){gepKey=k;gepBubble.textContent=T(k);wrap.classList.add("gep-talk");clearTimeout(gepT);gepT=setTimeout(()=>wrap.classList.remove("gep-talk"),3200);}
   function update(){
     const max=document.documentElement.scrollHeight-innerHeight;
@@ -138,7 +138,10 @@
     let sec=null;
     for(const id of ids){const el=document.getElementById(id);if(!el)continue;const r=el.getBoundingClientRect();if(r.top<innerHeight*0.5&&r.bottom>innerHeight*0.5)sec=id;}
     const atBottom=show&&p>0.985;
-    if(atBottom){
+    if(!ready){
+      /* just loaded or refreshed: remember where we are, but stay quiet */
+      if(atBottom){gepSaid=true;current="bottom";}else if(show&&sec)current=sec;
+    }else if(atBottom){
       /* at the very bottom: Geppetto calls, Pinokkio answers */
       if(!gepSaid){gepSaid=true;current="bottom";wrap.classList.remove("talk");
         gepTalk("Pinokkio, kom terug naar boven!");
@@ -160,5 +163,5 @@
   svg.addEventListener("click",()=>{bubble.textContent=T("Terug naar boven!");wrap.classList.add("talk");scrollTo({top:0,behavior:reduce?"auto":"smooth"})});
 
   update();
-  addEventListener("load",update);setTimeout(update,600);
+  addEventListener("load",()=>{update();setTimeout(()=>{update();ready=true},700)});
 })();
