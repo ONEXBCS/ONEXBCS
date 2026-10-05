@@ -95,6 +95,14 @@
   svg.style.cssText="--nose:1.15";
   wrap.appendChild(svg);
   document.body.appendChild(wrap);
+  /* on load Geppetto comes down on a string too, like the menu */
+  if(document.documentElement.classList.contains("rig-on")&&getComputedStyle(wrap).display!=="none"){
+    const tm=wrap.querySelector(".toymaker").getBoundingClientRect(),wr=wrap.getBoundingClientRect();
+    const r=document.createElement("i");r.className="rope";r.setAttribute("aria-hidden","true");
+    const len=innerHeight*1.2,y=tm.top-wr.top+tm.height*.62;
+    r.style.cssText=`bottom:auto;top:${y-len}px;height:${len}px;left:${tm.left-wr.left+tm.width*.36}px;z-index:2;--rd:.7s`;
+    wrap.appendChild(r);
+  }
   const bubble=wrap.querySelector(".buddy-bubble"),gepBubble=wrap.querySelector(".gep-bubble");
 
   /* what he says in each section */
