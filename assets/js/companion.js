@@ -95,6 +95,7 @@
   svg.style.cssText="--nose:1.15";
   wrap.appendChild(svg);
   document.body.appendChild(wrap);
+  let rigging=false;
   /* on load Geppetto comes down on a string too, like the menu */
   if(document.documentElement.classList.contains("rig-on")&&getComputedStyle(wrap).display!=="none"){
     const tm=wrap.querySelector(".toymaker").getBoundingClientRect(),wr=wrap.getBoundingClientRect();
@@ -102,6 +103,9 @@
     const len=innerHeight*1.2,y=tm.top-wr.top+tm.height*.62;
     r.style.cssText=`bottom:auto;top:${y-len}px;height:${len}px;left:${tm.left-wr.left+tm.width*.36}px;z-index:2;--rd:.7s`;
     wrap.appendChild(r);
+    /* first Geppetto lands, then he lets Pinokkio down */
+    rigging=true;
+    setTimeout(()=>{rigging=false;wrap.classList.add("unroll");update();ready=true;setTimeout(()=>wrap.classList.remove("unroll"),1300)},2000);
   }
   const bubble=wrap.querySelector(".buddy-bubble"),gepBubble=wrap.querySelector(".gep-bubble");
 
@@ -132,7 +136,7 @@
     const p=max>0?Math.min(1,scrollY/max):0;
     /* hidden while the big puppet on home is visible */
     const home=document.getElementById("home");
-    const show=home?home.getBoundingClientRect().bottom<innerHeight*0.35:true;
+    const show=!rigging&&(home?home.getBoundingClientRect().bottom<innerHeight*0.35:true); /* while Geppetto comes down, Pinokkio stays rolled up */
     wrap.classList.toggle("on",show);
     /* string gets longer the further you scroll */
     const strTop=wrap.querySelector(".buddy-str").getBoundingClientRect().top;
@@ -210,5 +214,5 @@
   });
 
   update();
-  addEventListener("load",()=>{update();setTimeout(()=>{update();ready=true},700)});
+  addEventListener("load",()=>{update();setTimeout(()=>{if(rigging)return;update();ready=true},700)});
 })();
