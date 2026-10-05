@@ -115,7 +115,7 @@
     if(!reduce){svg.classList.remove("wave");void svg.getBoundingClientRect();svg.classList.add("wave");}
   }
 
-  let gepSaid=false,gepKey=null,gepT=null;
+  let gepSaid=false,gepKey=null,gepT=null,replyT=null;
   function gepTalk(k){gepKey=k;gepBubble.textContent=T(k);wrap.classList.add("gep-talk");clearTimeout(gepT);gepT=setTimeout(()=>wrap.classList.remove("gep-talk"),3200);}
   function update(){
     const max=document.documentElement.scrollHeight-innerHeight;
@@ -137,11 +137,17 @@
     /* which section is in the middle of the screen */
     let sec=null;
     for(const id of ids){const el=document.getElementById(id);if(!el)continue;const r=el.getBoundingClientRect();if(r.top<innerHeight*0.5&&r.bottom>innerHeight*0.5)sec=id;}
-    if(show&&sec&&sec!==current){current=sec;say(sec);}
-    if(!show)current=null;
     const atBottom=show&&p>0.985;
-    if(atBottom&&!gepSaid){gepSaid=true;gepTalk("Pinokkio, kom terug naar boven!");}
-    if(!atBottom&&p<0.9)gepSaid=false;
+    if(atBottom){
+      /* at the very bottom: Geppetto calls, Pinokkio answers */
+      if(!gepSaid){gepSaid=true;current="bottom";wrap.classList.remove("talk");
+        gepTalk("Pinokkio, kom terug naar boven!");
+        clearTimeout(replyT);replyT=setTimeout(()=>say("Ik kom zo, papa!"),1400);}
+    }else{
+      if(p<0.9&&gepSaid){gepSaid=false;current=null;}
+      if(show&&sec&&sec!==current&&current!=="bottom"){current=sec;say(sec);}
+    }
+    if(!show)current=null;
   }
 
   let ticking=false;
