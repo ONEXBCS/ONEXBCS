@@ -224,7 +224,7 @@
     }
     countOnce(0);
     function load(){
-      fetch("https://onexbcs.goatcounter.com/counter/TOTAL.json?start=2026-10-01",{cache:"no-store"}).then(r=>r.ok?r.json():Promise.reject()).then(j=>{
+      fetch("https://onexbcs.goatcounter.com/counter/TOTAL.json?start=2026-10-05",{cache:"no-store"}).then(r=>r.ok?r.json():Promise.reject()).then(j=>{
         const n=parseInt(String(j.count).replace(/\D/g,""),10);
         if(!isNaN(n))show(n);
       }).catch(()=>{document.getElementById("visits").hidden=true});
