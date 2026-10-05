@@ -19,6 +19,18 @@
     setTimeout(shoot,3000);
   })();
 
+  /* on load: header and ONEX letters hang on strings; the strings go back up afterwards */
+  if(document.documentElement.classList.contains("rig-on")){
+    const rig=[...document.querySelectorAll(".header .logo,.nav a,.lang,.burger,.hero .lt")];
+    rig.forEach(el=>{
+      if(el.closest(".nav")&&innerWidth<=860)return;
+      const r=document.createElement("i");r.className="rope";r.setAttribute("aria-hidden","true");
+      r.style.setProperty("--rd",getComputedStyle(el).animationDelay.split(",")[0]);
+      el.appendChild(r);
+    });
+    setTimeout(()=>{document.querySelectorAll(".rope").forEach(r=>r.remove());document.documentElement.classList.remove("rig-on")},3400);
+  }
+
   /* ransom headings */
   const styles=[
     {bg:"#cfcfcf",fg:"#141414",f:"'Abril Fatface',Georgia,serif"},
@@ -31,29 +43,6 @@
     {bg:"#c88a4b",fg:"#2a170a",f:"'Abril Fatface',Georgia,serif"}
   ];
   function rnd(seed){let s=seed;return()=>{s=(s*9301+49297)%233280;return s/233280}}
-  /* one cut-out letter, with a little piece of tape on top */
-  function makeLetter(ch,st,rot,y,hov){
-    const p=document.createElement("span");p.className="lp";
-    const l=document.createElement("span");l.className="l";l.textContent=ch;
-    l.style.background=st.bg;l.style.color=st.fg;l.style.fontFamily=st.f;
-    if(st.i)l.style.fontStyle="italic";
-    if(st.b)l.style.border="2px solid #ece6d8";
-    p.style.transform=`rotate(${rot}deg) translateY(${y/100}em)`;
-    if(hov)p.style.setProperty("--hov",hov);
-    const t=document.createElement("span");t.className="ltape";
-    t.style.setProperty("--tr",(((rot*7)%9)-4.5).toFixed(1)+"deg");
-    p.append(l,t);return p;
-  }
-  /* letters get pasted on one by one: drop, tik, tape */
-  function paste(el,step){
-    if(reduce){el.classList.add("pasted");return}
-    el.classList.remove("wait","pasting","pasted");void el.offsetWidth;
-    el.querySelectorAll(".lp").forEach((p,i)=>p.style.setProperty("--d",(i*step)+"ms"));
-    el.classList.add("pasting");
-  }
-  const pasteIO="IntersectionObserver" in window&&!reduce?new IntersectionObserver(es=>es.forEach(e=>{
-    if(e.isIntersecting){e.target.dataset.seen="1";paste(e.target,90);pasteIO.unobserve(e.target)}
-  }),{threshold:.6}):null;
   function renderRansoms(){document.querySelectorAll('.ransom[data-word]').forEach(el=>{
     el.textContent="";
     const r=rnd(+el.dataset.seed||1);
@@ -62,13 +51,16 @@
       [...part].forEach(ch=>{
         const st=styles[Math.floor(r()*styles.length)];
         const rot=+(r()*12-6).toFixed(1), y=Math.round(r()*14-7);
-        w.appendChild(makeLetter(ch,st,rot,y,`rotate(${(rot*1.8).toFixed(1)}deg) translateY(${(y*1.6)/100}em)`));
+        const l=document.createElement("span");l.className="l";l.textContent=ch;
+        l.style.background=st.bg;l.style.color=st.fg;l.style.fontFamily=st.f;
+        if(st.i)l.style.fontStyle="italic";
+        if(st.b)l.style.border="2px solid #ece6d8";
+        l.style.transform=`rotate(${rot}deg) translateY(${y/100}em)`;
+        l.style.setProperty("--hov",`rotate(${(rot*1.8).toFixed(1)}deg) translateY(${(y*1.6)/100}em)`);
+        w.appendChild(l);
       });
       el.appendChild(w);
     });
-    if(!pasteIO)el.classList.add("pasted");
-    else if(el.dataset.seen)paste(el,60);
-    else{el.classList.add("wait");pasteIO.observe(el)}
   });}
   renderRansoms();
 
@@ -192,11 +184,14 @@
       const w=document.createElement("span");w.className="w";
       [...part].forEach(ch=>{
         const st=styles[Math.floor(r()*styles.length)];
-        w.appendChild(makeLetter(ch,{...st,b:0},+(r()*10-5).toFixed(1),0));
+        const l=document.createElement("span");l.className="l";l.textContent=ch;
+        l.style.background=st.bg;l.style.color=st.fg;l.style.fontFamily=st.f;
+        if(st.i)l.style.fontStyle="italic";
+        l.style.transform=`rotate(${(r()*10-5).toFixed(1)}deg)`;
+        w.appendChild(l);
       });
       el.appendChild(w);
     });
-    paste(el,60);
   }
   function what(){return document.querySelector('input[name="what"]:checked').value}
   function body(){
