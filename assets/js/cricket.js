@@ -36,7 +36,7 @@
         <path d="M50 14C44 2 30 -1 14 4" stroke="#2f5e22" stroke-width="1.4" fill="none" stroke-linecap="round"/>
         <path d="M53 13C50 0 40 -4 26 -2" stroke="#2f5e22" stroke-width="1.4" fill="none" stroke-linecap="round"/>
       </g>
-      <path d="M22 30L12 18L8 44" stroke="#3f8a2e" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M22 30L13 17L15 43.5" stroke="#3f8a2e" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
       <path d="M10 30c0-8 10-12 22-12h10c6 0 9 4 9 9 0 6-5 9-12 9H18c-5 0-8-2-8-6z" fill="url(#ckBody)" stroke="#2a4f1c" stroke-width="1.5"/>
       <path d="M18 23v12M24 21v15M30 20v16" stroke="#2f6b24" stroke-width="1.1" opacity=".6"/>
       <path class="ck-wing" d="M20 22c6-6 18-7 28-3-6 5-17 7-28 3z" fill="url(#ckWing)" stroke="#4a2a10" stroke-width="1.2"/>

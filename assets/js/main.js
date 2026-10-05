@@ -77,7 +77,6 @@
   function setNose(){
     const v=1+n*.5;
     pup.style.setProperty("--nose",v);pup.style.setProperty("--leaf",n>=3?1:0);
-    document.getElementById("len").textContent=Math.round(4*v);
   }
   let sayKey="Klik op mij. Ik lieg nooit, echt.";
   function say(t){sayKey=t;bub.textContent=T(t);bub.classList.remove("pop");void bub.offsetWidth;bub.classList.add("pop")}
@@ -185,7 +184,7 @@
   function what(){return document.querySelector('input[name="what"]:checked').value}
   function body(){
     const n=fName.value.trim(),m=fMsg.value.trim();
-    const w=what(),q=w==="Een vraag";
+    const w=what(),q=w==="Vraag";
     return `${T("Hoi ONEX,")}\n\n${q?T("Ik heb een vraag:"):T("Ik wil graag:")+" "+T(w)}\n\n${m||T("(typ hier je bericht)")}\n\n${T("Groetjes,")}\n${n||"..."}`;
   }
   let lastWhat="";
@@ -196,7 +195,7 @@
     const m=fMsg.value.trim();
     nMsg.textContent=m||T("Typ hier je vraag of wat je wilt laten maken.");nMsg.classList.toggle("empty",!m);
     nName.textContent=fName.value.trim()||"...";
-    const su=encodeURIComponent(w==="Een vraag"?T("Vraag via je website"):"Project: "+T(w)),bo=encodeURIComponent(body());
+    const su=encodeURIComponent(w==="Vraag"?T("Vraag via je website"):"Project: "+T(w)),bo=encodeURIComponent(body());
     mailbtn.href=`mailto:${TO}?subject=${su}&body=${bo}`;
     gmailbtn.href=`https://mail.google.com/mail/?view=cm&fs=1&to=${TO}&su=${su}&body=${bo}`;
   }

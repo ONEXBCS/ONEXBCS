@@ -183,7 +183,6 @@ section{min-height:100svh;display:flex;align-items:center;padding-block:calc(var
 .bubble.pop{animation:pop .35s cubic-bezier(.3,1.6,.5,1)}
 @keyframes pop{from{transform:rotate(-3deg) scale(.8)}to{transform:rotate(-3deg) scale(1)}}
 .show .btns{justify-content:center;margin-top:6px}
-.meter{font-family:var(--f-type);font-size:13px;color:var(--muted);margin-top:8px;text-align:center}
 
 .scroll{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font-family:var(--f-type);font-size:13px;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:4px}
 .scroll i{width:2px;height:26px;background:linear-gradient(var(--yolk),transparent);animation:drip 1.8s ease-in-out infinite}
@@ -373,7 +372,7 @@ html,.field textarea{scrollbar-width:thin;scrollbar-color:var(--yolk) var(--ink-
   .stage{height:250px;min-height:0;width:100%}
   .bubble{right:62%;bottom:auto;top:30%;font-size:13px;max-width:140px;padding:8px 10px}
   .bubble::after{right:-11px;bottom:auto;top:12px;border-bottom:0;border-top:2px solid var(--ink)}
-  .show .btns,.meter{display:none}
+  .show .btns{display:none}
   .about{grid-template-columns:minmax(0,1fr)}
   .scroll{display:none}
 }
