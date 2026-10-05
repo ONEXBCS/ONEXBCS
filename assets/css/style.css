@@ -127,9 +127,10 @@ section{min-height:100svh;display:flex;align-items:center;padding-block:calc(var
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(24px,4vw,60px);align-items:center}
 .hey{font-family:var(--f-type);font-size:clamp(15px,1.7vw,18px);color:var(--muted);margin:0 0 14px}
 .letters{position:relative;width:min(500px,100%);aspect-ratio:881/301;margin-bottom:26px}
-.lt{position:absolute;animation:rigDrop 1.2s linear both,wob var(--sw) ease-in-out infinite;animation-delay:calc(var(--d) + .55s),calc(var(--d) + 1.75s);}
+.lt{position:absolute;animation:drop .9s cubic-bezier(.3,1.5,.5,1) both,wob var(--sw) ease-in-out infinite;animation-delay:var(--d),calc(var(--d) + .9s);}
 .lt img{width:100%;height:auto;display:block;filter:drop-shadow(0 12px 14px #000b);transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
-/* on load: everything comes down on strings and bounces a little */
+@keyframes drop{from{transform:translateY(-140%) rotate(-20deg);opacity:0}to{transform:none;opacity:1}}
+/* on load: the menu comes down on strings and bounces a little */
 @keyframes rigDrop{
   0%{translate:0 var(--from,-110vh);animation-timing-function:cubic-bezier(.45,0,.9,.6)}
   42%{translate:0 10px;animation-timing-function:ease-out}
@@ -146,7 +147,8 @@ section{min-height:100svh;display:flex;align-items:center;padding-block:calc(var
 .rig-on .header .logo,.rig-on .lang,.rig-on .burger{position:relative}
 .rope{position:absolute;left:50%;bottom:100%;width:1.5px;height:120vh;margin-left:-.75px;background:linear-gradient(#e6dfcf00,#e6dfcfdd 30%);
   pointer-events:none;transform-origin:top;animation:ropeUp .5s ease-in both;animation-delay:calc(var(--rd,0s) + 1.3s)}
-.lt .rope{bottom:85%}
+.nav a .rope{bottom:calc(100% - 7px)}
+.rope::after{content:"";position:absolute;bottom:-2px;left:-2px;width:5.5px;height:5.5px;border-radius:50%;background:#e8b021}
 @keyframes ropeUp{from{transform:scaleY(1)}to{transform:scaleY(0)}}
 @media (max-width:860px){.rig-on .nav a{animation:none}}
 @keyframes wob{0%,100%{transform:rotate(calc(var(--a) * -1))}50%{transform:rotate(var(--a))}}

@@ -19,9 +19,9 @@
     setTimeout(shoot,3000);
   })();
 
-  /* on load: header and ONEX letters hang on strings; the strings go back up afterwards */
+  /* on load: the menu hangs on strings; the strings go back up afterwards */
   if(document.documentElement.classList.contains("rig-on")){
-    const rig=[...document.querySelectorAll(".header .logo,.nav a,.lang,.burger,.hero .lt")];
+    const rig=[...document.querySelectorAll(".header .logo,.nav a,.lang,.burger")];
     rig.forEach(el=>{
       if(el.closest(".nav")&&innerWidth<=860)return;
       const r=document.createElement("i");r.className="rope";r.setAttribute("aria-hidden","true");
