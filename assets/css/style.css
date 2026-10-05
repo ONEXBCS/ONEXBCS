@@ -526,3 +526,9 @@ html,.field textarea{scrollbar-width:thin;scrollbar-color:var(--yolk) var(--ink-
 @media (min-width:1100px) and (pointer:fine){.foot-top{padding-bottom:96px}}
 @media (prefers-reduced-motion:reduce){.ck-ant,.ck-eye{animation:none}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}.skill .fill{width:calc(var(--p) * 1%)}}
+
+/* "Wheeeee" trail when you click the little Pinokkio */
+.whee{position:fixed;z-index:60;pointer-events:none;font-family:var(--f-block);font-weight:900;color:var(--yolk);
+  text-shadow:2px 2px 0 #0f0c19,-1px -1px 0 #0f0c19;transform:translate(-50%,0) rotate(var(--r,0deg));
+  animation:whee 1.7s ease-out forwards}
+@keyframes whee{0%{opacity:0;scale:.4}10%{opacity:1;scale:1.2}25%{scale:1}65%{opacity:1}100%{opacity:0;scale:.85;translate:0 14px}}
