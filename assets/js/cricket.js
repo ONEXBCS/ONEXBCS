@@ -69,7 +69,7 @@
     <!-- music notes -->
     <g class="ck-notes" fill="#e8b021" font-family="serif"><text x="84" y="10" font-size="11">♪</text><text x="92" y="0" font-size="9">♫</text><text x="76" y="-4" font-size="8">♪</text></g>
   </svg><span class="ck-say" data-noi18n></span>`;
-  foot.appendChild(el);
+  (foot.querySelector(".foot-bottom")||foot).appendChild(el);
   const say=el.querySelector(".ck-say");
 
   let t=null,key=null;

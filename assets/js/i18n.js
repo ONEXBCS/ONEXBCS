@@ -78,7 +78,7 @@
     /* contact */
     "// een vraag of iets laten maken? knip je brief in elkaar":"// a question or a project? cut and paste your letter",
     "1. Waarover gaat het?":"1. What's it about?",
-    "Een vraag":"A question","Iets anders":"Something else",
+    "Een vraag":"A question","Iets anders":"Something else","Server of game":"Server or game",
     "FiveM":"FiveM","Minecraft":"Minecraft","Roblox":"Roblox","Website":"Website",
     "FiveM server":"FiveM server","Minecraft server":"Minecraft server","Roblox game":"Roblox game","Custom website":"Custom website",
     "2. Je naam":"2. Your name","bv. Sam":"e.g. Sam",
