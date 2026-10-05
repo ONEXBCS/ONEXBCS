@@ -468,8 +468,6 @@ html,.field textarea{scrollbar-width:thin;scrollbar-color:var(--yolk) var(--ink-
 @keyframes ckant{0%,100%{transform:rotate(0)}50%{transform:rotate(-6deg)}}
 .ck-eye{animation:ckblink 4.4s infinite;transform-box:fill-box;transform-origin:center}
 @keyframes ckblink{0%,92%,100%{transform:none}95%{transform:scaleY(.15)}}
-.ck-shut{opacity:0}
-.cricket.play .ck-eye{opacity:0}.cricket.play .ck-shut{opacity:1}
 .ck-bow{transform-box:view-box;transform-origin:70px 30px}
 .cricket.play .ck-bow{animation:ckbow .22s ease-in-out 8 alternate}
 @keyframes ckbow{from{transform:translate(-4px,2px)}to{transform:translate(5px,-3px)}}

@@ -37,7 +37,6 @@
       <circle cx="54" cy="22" r="10" fill="url(#ckBody)" stroke="#2a4f1c" stroke-width="1.5"/>
       <ellipse cx="57" cy="20" rx="4.6" ry="5.4" fill="#fff" stroke="#2a4f1c" stroke-width="1.1"/>
       <g class="ck-eye"><circle cx="58.4" cy="21" r="2.4" fill="#16210f"/><circle cx="59.2" cy="20" r=".8" fill="#fff"/></g>
-      <path class="ck-shut" d="M54.5 21q2.5 2 5 0" stroke="#16210f" stroke-width="1.4" fill="none" stroke-linecap="round"/>
       <path d="M57 28q3 2 6-1" stroke="#2a4f1c" stroke-width="1.4" fill="none" stroke-linecap="round"/>
       <ellipse cx="61" cy="25.5" rx="2" ry="1.3" fill="#ef8b78" opacity=".6"/>
       <!-- tiny fiddle under his chin -->
@@ -70,11 +69,9 @@
     new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!greeted){greeted=true;play();talk("Je hebt alles gezien! Tsjirp!")}}),{threshold:.5}).observe(el);
   }
 
-  /* click: hop + something new */
-  const LINES=["Tsjirp!","Wees eerlijk, Pinokkio!","Ik hou hem in de gaten.","Een liedje voor jou!","Klik maar op Contact!"];
-  let i=0;
+  /* click: he just hops */
   el.addEventListener("click",()=>{
-    el.classList.remove("hop");void el.offsetWidth;el.classList.add("hop");play();talk(LINES[i++%LINES.length]);
+    el.classList.remove("hop");void el.offsetWidth;el.classList.add("hop");
   });
   document.addEventListener("langchange",()=>{el.setAttribute("aria-label",T("Krekel"));if(key)say.textContent=T(key)});
 })();
