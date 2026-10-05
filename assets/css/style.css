@@ -532,3 +532,12 @@ html,.field textarea{scrollbar-width:thin;scrollbar-color:var(--yolk) var(--ink-
   text-shadow:2px 2px 0 #0f0c19,-1px -1px 0 #0f0c19;transform:translate(-50%,0) rotate(var(--r,0deg));
   animation:whee 1.7s ease-out forwards}
 @keyframes whee{0%{opacity:0;scale:.4}10%{opacity:1;scale:1.2}25%{scale:1}65%{opacity:1}100%{opacity:0;scale:.85;translate:0 14px}}
+
+/* phones and tablets: own scrollbar that starts under the menu bar */
+@media (pointer:coarse){
+  html{scrollbar-width:none}
+  html::-webkit-scrollbar{display:none;width:0}
+  .mscroll{position:fixed;right:2px;z-index:45;width:4px;border-radius:4px;background:var(--yolk);opacity:0;pointer-events:none;transition:opacity .35s;box-shadow:0 0 0 1px #0f0c1999}
+  .mscroll.show{opacity:.85;transition:opacity .1s}
+}
+@media (pointer:fine){.mscroll{display:none}}

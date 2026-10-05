@@ -31,6 +31,25 @@
     setTimeout(()=>{document.querySelectorAll(".rope").forEach(r=>r.remove());document.documentElement.classList.remove("rig-on")},3400);
   }
 
+  /* phones and tablets: a thin scrollbar that starts under the menu bar, not behind it */
+  if(matchMedia("(pointer:coarse)").matches){
+    const bar=document.createElement("i");bar.className="mscroll";bar.setAttribute("aria-hidden","true");
+    document.body.appendChild(bar);
+    const head=document.querySelector(".header");let hideBar=null;
+    const place=show=>{
+      const top=head?head.getBoundingClientRect().bottom:0;
+      const track=innerHeight-top-4,doc=document.documentElement.scrollHeight;
+      if(doc<=innerHeight+1){bar.classList.remove("show");return}
+      const h=Math.max(36,track*innerHeight/doc);
+      const p=scrollY/(doc-innerHeight);
+      bar.style.height=h+"px";bar.style.top=(top+2+(track-h)*Math.min(1,Math.max(0,p)))+"px";
+      if(show){bar.classList.add("show");clearTimeout(hideBar);hideBar=setTimeout(()=>bar.classList.remove("show"),900)}
+    };
+    addEventListener("scroll",()=>place(true),{passive:true});
+    addEventListener("resize",()=>place(false));
+    place(false);
+  }
+
   /* ransom headings */
   const styles=[
     {bg:"#cfcfcf",fg:"#141414",f:"'Abril Fatface',Georgia,serif"},
