@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/images/favicon.png">
+<meta name="theme-color" content="#0f0c19">
+<title>404 · ONEX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bowlby+One&family=Familjen+Grotesk:wght@400;500;700&family=Special+Elite&family=Rubik+Mono+One&family=Playfair+Display:ital,wght@1,900&display=swap">
+<link rel="stylesheet" href="/assets/css/style.css?v=19">
+<style>
+  /* 404: Pinokkio swears the page exists, while his nose grows across the screen */
+  body{overflow-x:hidden}
+  .lost{min-height:100svh;display:grid;place-items:center;padding-block:40px;text-align:center}
+  .lost .wrap{display:grid;justify-items:center;gap:18px}
+  .big404{font-size:clamp(56px,14vw,140px);--g:clamp(6px,1.4vw,14px);justify-content:center}
+  .face404{position:relative;width:min(240px,55vw);aspect-ratio:1;margin-block:6px 0}
+  .face404 svg{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;--nose:1;--leaf:0}
+  .lost h1{font-family:var(--f-display);font-weight:400;font-size:clamp(28px,4.6vw,46px);line-height:1.1;margin:0;max-width:20ch;text-wrap:balance}
+  .lost h1 em{font-style:normal;background:var(--paper);color:var(--ink);padding:0 .14em;display:inline-block;transform:rotate(-2deg)}
+  .lost p{margin:0;color:var(--muted);max-width:46ch}
+  .lost .sm{font-family:var(--f-type);font-size:14px}
+  .nose-cm{font-family:var(--f-type);font-size:13px;color:var(--yolk)}
+  .lang404{position:fixed;top:16px;right:16px;margin:0}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gWood" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e3a466"/><stop offset=".55" stop-color="#c88a4b"/><stop offset="1" stop-color="#8a5429"/></linearGradient>
+    <radialGradient id="gFace" cx=".42" cy=".38" r=".7"><stop offset="0" stop-color="#f0bb80"/><stop offset=".6" stop-color="#cf9152"/><stop offset="1" stop-color="#93592b"/></radialGradient>
+    <linearGradient id="gNose" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0b675"/><stop offset=".45" stop-color="#c88a4b"/><stop offset="1" stop-color="#7e4a22"/></linearGradient>
+    <linearGradient id="gLimb" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8a5429"/><stop offset=".4" stop-color="#d89a5a"/><stop offset="1" stop-color="#8a5429"/></linearGradient>
+    <linearGradient id="gHood" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3c7ee0"/><stop offset="1" stop-color="#1d4a99"/></linearGradient>
+    <pattern id="gScan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="2" fill="#00000030"/></pattern>
+    <linearGradient id="gHair" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6b3c1b"/><stop offset="1" stop-color="#3d200c"/></linearGradient>
+  </defs>
+
+  <!-- original wooden head, nose controlled by --nose -->
+  <symbol id="pHead" viewBox="0 0 320 560" overflow="visible">
+    <!-- ear -->
+    <ellipse cx="103" cy="128" rx="11" ry="16" fill="url(#gWood)" stroke="#5a3317" stroke-width="2"/>
+    <path d="M100 120q6 8 0 16" stroke="#5a3317" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- face -->
+    <ellipse cx="160" cy="124" rx="58" ry="62" fill="url(#gFace)" stroke="#5a3317" stroke-width="2.5"/>
+    <g stroke="#7a4520" stroke-width="1.2" fill="none" opacity=".35" stroke-linecap="round">
+      <path d="M118 150q10 14 6 26"/><path d="M200 100q8 20 2 40"/><path d="M128 92q-6 10-4 22"/><path d="M190 160q-6 10-14 14"/>
+    </g>
+    <!-- carved hair -->
+    <path d="M102 116C98 74 126 54 160 54c36 0 64 22 60 64-6-14-18-20-28-16-6-12-20-16-32-8-10-10-28-8-36 6-8-4-16 4-22 16z" fill="url(#gHair)" stroke="#2a1606" stroke-width="2.5" stroke-linejoin="round"/>
+    <g stroke="#2a1606" stroke-width="1.6" fill="none" opacity=".7" stroke-linecap="round">
+      <path d="M124 70q6 14 4 30"/><path d="M146 60q4 16 2 32"/><path d="M172 58q2 14-2 34"/><path d="M196 68q0 14-6 30"/>
+    </g>
+    <path d="M150 54q4-14 18-16q-6 8-4 16" fill="url(#gHair)" stroke="#2a1606" stroke-width="2"/>
+    <!-- brows -->
+    <path d="M132 98q11-8 22-2" stroke="#3d200c" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M168 96q11-7 22 1" stroke="#3d200c" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <!-- eyes -->
+    <ellipse cx="144" cy="117" rx="11" ry="13.5" fill="#fffaf0" stroke="#3d200c" stroke-width="2"/>
+    <ellipse cx="179" cy="117" rx="11" ry="13.5" fill="#fffaf0" stroke="#3d200c" stroke-width="2"/>
+    <g class="p-pupil">
+      <circle cx="147" cy="119" r="6.5" fill="#2f6fd0"/><circle cx="147" cy="119" r="3.4" fill="#0f0c19"/><circle cx="149" cy="116.5" r="1.8" fill="#fff"/>
+      <circle cx="182" cy="119" r="6.5" fill="#2f6fd0"/><circle cx="182" cy="119" r="3.4" fill="#0f0c19"/><circle cx="184" cy="116.5" r="1.8" fill="#fff"/>
+    </g>
+    <ellipse class="p-lid" cx="144" cy="117" rx="12" ry="14.5" fill="#c88a4b" stroke="#3d200c" stroke-width="2"/>
+    <ellipse class="p-lid" cx="179" cy="117" rx="12" ry="14.5" fill="#c88a4b" stroke="#3d200c" stroke-width="2"/>
+    <!-- cheeks & freckles -->
+    <ellipse cx="132" cy="146" rx="10" ry="7" fill="#e8807a" opacity=".55"/>
+    <ellipse cx="196" cy="146" rx="10" ry="7" fill="#e8807a" opacity=".55"/>
+    <g fill="#7a4520" opacity=".6"><circle cx="128" cy="140" r="1.3"/><circle cx="134" cy="143" r="1.3"/><circle cx="130" cy="148" r="1.3"/><circle cx="192" cy="140" r="1.3"/><circle cx="198" cy="144" r="1.3"/><circle cx="194" cy="149" r="1.3"/></g>
+    <!-- mouth -->
+    <path d="M144 158q18 16 36-2" stroke="#3d200c" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <path d="M152 163q8 6 18 0" stroke="#b34a3e" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- wood joint at jaw -->
+    <circle cx="116" cy="158" r="3" fill="#5a3317"/>
+    <!-- nose -->
+    <rect class="p-nose" x="162" y="124" width="40" height="16" rx="3" fill="url(#gNose)" stroke="#5a3317" stroke-width="2"/>
+    <g class="p-tip">
+      <circle cx="202" cy="132" r="8.6" fill="url(#gNose)" stroke="#5a3317" stroke-width="2"/>
+      <path d="M198 128q4-2 7 1" stroke="#fff" stroke-width="1.6" fill="none" opacity=".6" stroke-linecap="round"/>
+      <g class="p-leaf"><path d="M200 124q2-14 16-16q-2 14-16 16z" fill="#5d9e4f" stroke="#2e5a24" stroke-width="1.5"/><path d="M201 123l10-10" stroke="#2e5a24" stroke-width="1.2"/></g>
+    </g>
+    <circle cx="164" cy="132" r="3.2" fill="#5a3317" opacity=".5"/>
+  </symbol>
+
+  <symbol id="i-gh" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24"><path d="M23 7.2a3 3 0 00-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 001 7.2 31 31 0 00.5 12 31 31 0 001 16.8a3 3 0 002.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 002.1-2.1 31 31 0 00.5-4.8 31 31 0 00-.5-4.8zM9.7 15.1V8.9L15.4 12z"/></symbol>
+  <symbol id="i-tt" viewBox="0 0 24 24"><path d="M16.6 2h-3.4v13.4a2.9 2.9 0 11-2.9-2.9c.3 0 .6 0 .9.1V9.1a6.4 6.4 0 106 6.3V8.6a8.1 8.1 0 004.7 1.5V6.7a4.8 4.8 0 01-5.3-4.7z"/></symbol>
+  <symbol id="i-sc" viewBox="0 0 24 24"><path d="M12 2.2c2.9 0 5.2 2.2 5.3 5.1l-.1 2.6c.6.3 1.3.1 1.8-.1.5-.2 1 .4.6.9-.5.6-1.5.9-2.2 1.2-.3.1-.4.4-.3.7.8 1.8 2.2 3.1 4 3.6.4.1.5.6.1.8-.8.4-1.7.6-2.6.8-.2.3-.2.9-.5 1.2-.8 0-1.7-.2-2.6.1-1.2.4-2 1.7-3.5 1.7s-2.3-1.3-3.5-1.7c-.9-.3-1.8-.1-2.6-.1-.3-.3-.3-.9-.5-1.2-.9-.2-1.8-.4-2.6-.8-.4-.2-.3-.7.1-.8 1.8-.5 3.2-1.8 4-3.6.1-.3 0-.6-.3-.7-.7-.3-1.7-.6-2.2-1.2-.4-.5.1-1.1.6-.9.5.2 1.2.4 1.8.1l-.1-2.6C6.8 4.4 9.1 2.2 12 2.2z"/></symbol>
+  <symbol id="i-sp" viewBox="0 0 24 24"><path d="M12 1a11 11 0 100 22 11 11 0 000-22zm5 15.9a.7.7 0 01-.9.2c-2.6-1.6-5.8-1.9-9.6-1a.7.7 0 11-.3-1.3c4.2-1 7.7-.6 10.6 1.2.3.2.4.6.2.9zm1.3-3a.9.9 0 01-1.2.3c-2.9-1.8-7.4-2.3-10.9-1.3a.9.9 0 11-.5-1.7c4-1.2 9-.6 12.3 1.5.4.2.6.8.3 1.2zm.1-3.1C14.9 8.7 9.2 8.5 5.9 9.5a1.1 1.1 0 11-.6-2.1c3.8-1.2 10.1-.9 14.1 1.4a1.1 1.1 0 11-1 1.9z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><path d="M12 7.3a4.7 4.7 0 100 9.4 4.7 4.7 0 000-9.4zm0 7.7a3 3 0 110-6 3 3 0 010 6zm6-7.9a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0zM16.8 1H7.2A6.2 6.2 0 001 7.2v9.6A6.2 6.2 0 007.2 23h9.6a6.2 6.2 0 006.2-6.2V7.2A6.2 6.2 0 0016.8 1zm4.2 15.8a4.2 4.2 0 01-4.2 4.2H7.2A4.2 4.2 0 013 16.8V7.2A4.2 4.2 0 017.2 3h9.6A4.2 4.2 0 0121 7.2z"/></symbol>
+  <symbol id="i-dc" viewBox="0 0 24 24"><path d="M19.6 5.2A17 17 0 0015.4 4l-.5 1a15.7 15.7 0 00-5.8 0l-.5-1a17 17 0 00-4.2 1.2C1.7 9.2 1 13.1 1.3 17a17 17 0 005.2 2.6l1.1-1.8a11 11 0 01-1.7-.8l.4-.3a12 12 0 0011.4 0l.4.3-1.7.8 1.1 1.8a17 17 0 005.2-2.6c.4-4.5-.7-8.4-3.1-11.8zM8.6 14.6c-1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1zm6.8 0c-1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1z"/></symbol>
+</svg>
+<div class="lang lang404" role="group" aria-label="Kies taal"><button type="button" data-lang="nl" aria-pressed="true">NL</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+<main class="lost">
+  <div class="wrap">
+    <div class="ransom big404" data-word="404" data-seed="9" aria-label="404"></div>
+    <div class="face404" aria-hidden="true"><svg viewBox="88 36 150 156" id="face"><use href="#pHead" width="320" height="560"/></svg></div>
+    <h1 data-i18n>Deze pagina bestaat. <em>Echt waar.</em></h1>
+    <p data-i18n class="sm" id="lie404">Zie je zijn neus? Dan weet je genoeg.</p>
+    <span class="nose-cm" id="cm">neus: 4 cm</span>
+    <p data-i18n>De pagina die je zoekt is er niet, of ze is verhuisd. Pinokkio wil het niet toegeven.</p>
+    <div class="btns" style="justify-content:center">
+      <a class="btn" href="/" data-i18n>Terug naar home</a>
+      <a class="btn ghost" href="/#contact" data-i18n>Iets melden</a>
+    </div>
+  </div>
+</main>
+<script>
+(function(){
+  const EN={
+    "Deze pagina bestaat. Echt waar.":"This page exists. Honestly.",
+    "Zie je zijn neus? Dan weet je genoeg.":"See his nose? Then you know enough.",
+    "De pagina die je zoekt is er niet, of ze is verhuisd. Pinokkio wil het niet toegeven.":"The page you're looking for isn't here, or it has moved. Pinocchio just won't admit it.",
+    "Terug naar home":"Back to home","Iets melden":"Report something",
+    "Echt waar.":"Honestly.","Deze pagina bestaat.":"This page exists.","Kies taal":"Choose language"
+  };
+  let lang="nl";
+  try{const s=localStorage.getItem("onex-lang");if(s)lang=s;else if(!/^nl/i.test(navigator.language||"nl"))lang="en";}catch(e){}
+  const T=s=>lang==="en"&&EN[s]?EN[s]:s;
+
+  /* ransom "404" */
+  const styles=[["#cfcfcf","#141414","'Abril Fatface',Georgia,serif"],["#2f6fd0","#dce7f6","'Bowlby One','Arial Black',sans-serif"],["#e8b021","#d6312a","'Special Elite','Courier New',monospace"]];
+  const big=document.querySelector(".big404");
+  [..."404"].forEach((ch,i)=>{const l=document.createElement("span");l.className="l";l.textContent=ch;const st=styles[i];
+    l.style.background=st[0];l.style.color=st[1];l.style.fontFamily=st[2];l.style.transform=`rotate(${[-6,4,-3][i]}deg) translateY(${[0,-.06,.05][i]}em)`;big.appendChild(l)});
+
+  /* texts */
+  const nodes=[...document.querySelectorAll("[data-i18n]")].map(el=>[el,el.innerHTML]);
+  function apply(){
+    document.documentElement.lang=lang;
+    nodes.forEach(([el,html])=>{
+      if(el.tagName==="H1")el.innerHTML=T("Deze pagina bestaat.")+" <em>"+T("Echt waar.")+"</em>";
+      else el.textContent=T(el.textContent.trim()===html.trim()||lang==="nl"?html.trim():el.textContent.trim());
+    });
+    if(lang==="nl")nodes.forEach(([el,html])=>{el.innerHTML=html});
+    document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===lang));
+    unit();
+  }
+  document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>{lang=b.dataset.lang;try{localStorage.setItem("onex-lang",lang)}catch(e){};apply()}));
+
+  /* the nose keeps growing, all the way across the screen */
+  const face=document.getElementById("face"),cm=document.getElementById("cm");
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let n=1;
+  function unit(){cm.textContent=(lang==="en"?"nose: ":"neus: ")+Math.round(4*n)+" cm"}
+  function grow(){
+    const r=face.getBoundingClientRect();
+    const maxN=Math.max(2,(innerWidth-r.left-r.width*0.55)/(r.width*0.27)+1); /* until it reaches the edge */
+    if(n<maxN){n=Math.min(maxN,n+0.35);face.style.setProperty("--nose",n.toFixed(2));face.style.setProperty("--leaf",n>3?1:0);unit()}
+  }
+  if(reduce){n=6;face.style.setProperty("--nose",n);face.style.setProperty("--leaf",1)}
+  else setInterval(grow,450);
+  apply();
+})();
+</script>
+</body>
+</html>

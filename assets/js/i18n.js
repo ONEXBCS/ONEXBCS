@@ -129,7 +129,9 @@
     "Je mail-app zou nu moeten openen. Gebeurt er niets? Gebruik Kopieer en mail het zelf.":"Your mail app should open now. Nothing happening? Use Copy and email it yourself.",
     "Geselecteerd, druk Ctrl+C.":"Selected, press Ctrl+C.",
     "Gekopieerd! Plak het in een mail of op Discord.":"Copied! Paste it in an email or on Discord.",
-    "Mailadres gekopieerd!":"Email address copied!"
+    "Mailadres gekopieerd!":"Email address copied!",
+    "Dit ben ik!":"That's me!","Kijk, mijn skills!":"Check out my skills!","Wat zal ik voor je bouwen?":"What shall I build for you?",
+    "Volg me!":"Follow me!","Stuur me een brief!":"Send me a letter!","Terug naar boven!":"Back to the top!"
   };
 
   let lang="nl";
