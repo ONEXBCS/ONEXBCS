@@ -164,6 +164,7 @@
   svg.style.pointerEvents="auto";
   let wheeT=null;
   function whee(){
+    if(scrollY<=2||!wrap.classList.contains("on"))return; /* already at the top */
     wheeing=true;key=null;clearTimeout(hideT);wrap.classList.remove("talk","gep-talk");
     if(reduce){scrollTo({top:0,behavior:"auto"});wheeing=false;return}
     /* a slow, fun ride up that leaves a trail of "Wheeeee" behind him */
