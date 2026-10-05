@@ -27,7 +27,7 @@ De site draait rond Pinokkio, mijn bijnaam sinds ik klein ben: houten poppen, to
 - **Socials:** al mijn kanalen op één plek
 - **Contact:** knip je eigen brief in elkaar en verstuur hem via Gmail, je mail-app of Discord
 - **NL / EN:** wissel met één klik tussen Nederlands en Engels
-- **Bezoekersteller:** telt elke bezoeker één keer, zonder IP-adressen op te slaan
+- **Bezoekersteller:** telt unieke bezoekers via GoatCounter, zonder cookies en zonder IP-adressen op te slaan
 
 ## Gebouwd met
 
