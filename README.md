@@ -28,7 +28,7 @@ De site draait rond Pinokkio, mijn bijnaam sinds ik klein ben: houten poppen, to
 - **Contact:** knip je eigen brief in elkaar en verstuur hem via Gmail, je mail-app of Discord
 - **NL / EN:** wissel met één klik tussen Nederlands en Engels
 - **Mini-Pinokkio:** hangt aan een touwtje rechts op je scherm, zakt mee als je scrolt en zegt iets bij elke sectie
-- **404-pagina:** Pinokkio zweert dat de pagina bestaat, terwijl zijn neus over het hele scherm groeit
+- **404-pagina:** 404 hangt aan touwtjes en Pinokkio kijkt verward rond (klik op een cijfer en het valt naar beneden)
 - **Bezoekersteller:** telt unieke bezoekers via GoatCounter, zonder cookies en zonder IP-adressen op te slaan
 
 ## Gebouwd met
