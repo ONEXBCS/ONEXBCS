@@ -2,12 +2,22 @@
 (function(){
   const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* sawdust drifting through the workshop */
-  if(!reduce){const d=document.createElement("div");d.className="dust";d.setAttribute("aria-hidden","true");
-    const n=innerWidth<700?12:24;
-    for(let i=0;i<n;i++){const p=document.createElement("i");p.style.left=Math.random()*100+"%";p.style.setProperty("--s",(2+Math.random()*3)+"px");
-      p.style.setProperty("--dur",(12+Math.random()*12)+"s");p.style.setProperty("--dl",(-Math.random()*24)+"s");p.style.setProperty("--dx",(Math.random()*80-40)+"px");d.appendChild(p)}
-    document.body.prepend(d);}
+  /* night sky: twinkling stars + now and then a shooting star */
+  (function(){
+    const sky=document.createElement("div");sky.className="sky";sky.setAttribute("aria-hidden","true");
+    const n=innerWidth<700?55:110;
+    for(let i=0;i<n;i++){const s=document.createElement("i");s.className="st"+(Math.random()<.15?" y":"");
+      const big=Math.random()<.08;
+      s.style.left=Math.random()*100+"%";s.style.top=Math.random()*100+"%";
+      s.style.setProperty("--s",(big?2.6:0.8+Math.random()*1.4)+"px");s.style.setProperty("--o",(big?.95:.35+Math.random()*.5).toFixed(2));
+      s.style.setProperty("--dur",(2.5+Math.random()*4).toFixed(1)+"s");s.style.setProperty("--dl",(-Math.random()*6).toFixed(1)+"s");sky.appendChild(s)}
+    const sh=document.createElement("i");sh.className="shoot";sky.appendChild(sh);
+    document.body.prepend(sky);
+    if(reduce)return;
+    function shoot(){if(!document.hidden){sh.style.left=(40+Math.random()*55)+"%";sh.style.top=(3+Math.random()*35)+"%";sh.classList.remove("go");void sh.offsetWidth;sh.classList.add("go")}
+      setTimeout(shoot,7000+Math.random()*9000)}
+    setTimeout(shoot,3000);
+  })();
 
   /* ransom headings */
   const styles=[
