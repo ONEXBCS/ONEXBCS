@@ -224,7 +224,10 @@
     }
     countOnce(0);
     function load(){
-      fetch("https://onexbcs.goatcounter.com/counter/TOTAL.json?start=2026-10-05",{cache:"no-store"}).then(r=>r.ok?r.json():Promise.reject()).then(j=>{
+      /* GoatCounter caches each counter URL for a while. A far-future "end" date that changes
+         every minute gives a fresh URL, so the number on the site stays up to date. */
+      const end=new Date(Date.UTC(2030,0,1)+(Math.floor(Date.now()/60000)%3000)*864e5).toISOString().slice(0,10);
+      fetch("https://onexbcs.goatcounter.com/counter/TOTAL.json?start=2026-10-05&end="+end,{cache:"no-store"}).then(r=>r.ok?r.json():Promise.reject()).then(j=>{
         const n=parseInt(String(j.count).replace(/\D/g,""),10);
         if(!isNaN(n))show(n);
       }).catch(()=>{document.getElementById("visits").hidden=true});
