@@ -10,7 +10,7 @@
 <title>404 · ONEX</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bowlby+One&family=Familjen+Grotesk:wght@400;500;700&family=Special+Elite&family=Rubik+Mono+One&family=Playfair+Display:ital,wght@1,900&display=swap">
-<link rel="stylesheet" href="/assets/css/style.css?v=39">
+<link rel="stylesheet" href="/assets/css/style.css?v=40">
 <style>
   /* 404: Geppetto's workshop at night. A "wanted" poster for the lost page, Pinokkio looking around, the night sky.
      Everything fits one screen: no scrolling. */
@@ -40,7 +40,8 @@
   .poster h1{font-family:var(--f-display);font-weight:400;font-size:clamp(24px,4vw,32px);line-height:1.1;margin:0 0 10px}
   .poster dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:0 auto;max-width:300px;text-align:left;font-family:var(--f-type);font-size:14px}
   .poster dt{color:#6b5a45}
-  .poster dd{margin:0}
+  .poster dd{margin:0;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .poster .gone{margin:10px 0 0;font-family:var(--f-type);font-size:14px;color:#5a4a36}
 
   /* Pinokkio looking around, free-standing so nothing overlaps */
   .seek{position:relative;width:min(16vh,130px);aspect-ratio:1;max-width:100%}
@@ -137,6 +138,7 @@
     <dl>
       <dt data-t>Adres:</dt><dd id="path">/</dd>
     </dl>
+    <p class="gone" data-t>Bestaat niet meer, of is verhuisd.</p>
   </div>
 
   <div class="seek" aria-hidden="true">
@@ -154,7 +156,7 @@
 <script>
 (function(){
   const EN={
-    "Deze pagina":"This page","Adres:":"Address:",
+    "Deze pagina":"This page","Adres:":"Address:","Bestaat niet meer, of is verhuisd.":"Doesn't exist anymore, or has moved.",
     "Terug naar home":"Back to home","Kies taal":"Choose language",
     "GEZOCHT":"WANTED","Gezocht":"Wanted"
   };
@@ -180,7 +182,7 @@
     [...T("GEZOCHT")].forEach((ch,i)=>{const l=letter(ch,(i*5+2)%styles.length);l.style.transform=`rotate(${[-5,3,-2,4,-4,2,-3][i%7]}deg)`;w.appendChild(l)});wanted.appendChild(w)}
 
   /* which address was asked for */
-  document.getElementById("path").textContent=decodeURIComponent(location.pathname).slice(0,40)||"/";
+  const pth=document.getElementById("path");pth.textContent=decodeURIComponent(location.pathname)||"/";pth.title=pth.textContent;
 
   /* texts */
   const nodes=[...document.querySelectorAll("[data-t]")].map(el=>[el,el.textContent.trim()]);
