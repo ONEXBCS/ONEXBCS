@@ -12,24 +12,24 @@
   <defs>
     <radialGradient id="mkSkin" cx=".42" cy=".38" r=".7"><stop offset="0" stop-color="#ffd9bd"/><stop offset=".7" stop-color="#f0b48e"/><stop offset="1" stop-color="#d98e66"/></radialGradient>
     <linearGradient id="mkWood" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e3a466"/><stop offset="1" stop-color="#7e4a22"/></linearGradient>
-    <linearGradient id="mkPants" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6b5a45"/><stop offset="1" stop-color="#4a3c2c"/></linearGradient>
+    <linearGradient id="mkPants" gradientUnits="userSpaceOnUse" x1="0" y1="34" x2="0" y2="82"><stop offset="0" stop-color="#6b5a45"/><stop offset="1" stop-color="#4a3c2c"/></linearGradient>
     <linearGradient id="mkStripe" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1e7d2"/><stop offset="1" stop-color="#cdbf9f"/></linearGradient>
     <linearGradient id="mkWig" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9c96a"/><stop offset="1" stop-color="#c39a3a"/></linearGradient>
     <linearGradient id="mkHat" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4b8be8"/><stop offset="1" stop-color="#1f4f9e"/></linearGradient>
   </defs>
   <!-- legs kicking up in the air behind him -->
-  <g class="mk-leg mk-leg1">
+  <g class="mk-leg mk-leg1" transform="translate(18 0)">
     <path d="M58 74H34" stroke="url(#mkPants)" stroke-width="13" stroke-linecap="round"/>
     <path d="M34 74L22 44" stroke="url(#mkPants)" stroke-width="11" stroke-linecap="round"/>
     <path d="M13 41c0-7 6-10 13-8l7 3c3 2 2 6-2 6H15c-1 0-2-0-2-1z" fill="url(#mkWood)" stroke="#3d200c" stroke-width="1.6"/>
   </g>
-  <g class="mk-leg mk-leg2">
+  <g class="mk-leg mk-leg2" transform="translate(18 0)">
     <path d="M62 73.5H42" stroke="url(#mkPants)" stroke-width="13" stroke-linecap="round"/>
     <path d="M42 73.5l8-28" stroke="url(#mkPants)" stroke-width="11" stroke-linecap="round"/>
     <path d="M41 41c1-7 8-9 14-6l6 4c3 2 1 6-3 5l-15-1c-1 0-2-1-2-2z" fill="url(#mkWood)" stroke="#3d200c" stroke-width="1.6"/>
   </g>
   <!-- body lying on the bar: striped shirt, braces -->
-  <path d="M52 80c-2-16 10-26 32-26h22c18 0 28 10 28 26z" fill="url(#mkStripe)" stroke="#3d200c" stroke-width="1.8"/>
+  <path d="M54 80c-2-16 10-26 32-26h26c18 0 30 10 32 26z" fill="url(#mkStripe)" stroke="#3d200c" stroke-width="1.8"/>
   <path d="M70 80c0-10 4-22 14-24h18c8 2 12 12 12 24z" fill="#8a5a33" stroke="#4a2a10" stroke-width="1.6"/>
   <path d="M84 56l-4-6M102 56l3-6" stroke="#4a2a10" stroke-width="2.2" stroke-linecap="round"/>
   <rect x="84" y="66" width="16" height="9" rx="1.5" fill="#6e4524" stroke="#4a2a10" stroke-width="1"/>
@@ -37,6 +37,8 @@
   <!-- arms hanging over the edge, holding the reel -->
   <path class="mk-arm" d="M118 66c8 4 12 14 12 24" stroke="url(#mkStripe)" stroke-width="12" fill="none" stroke-linecap="round"/>
   <path d="M118 66c8 4 12 14 12 24" stroke="#3d200c" stroke-width="1.4" fill="none" opacity=".35"/>
+  <!-- neck -->
+  <path d="M126 58c4-2 12-2 18 2l2 18h-22z" fill="url(#mkSkin)" stroke="#3d200c" stroke-width="1.5"/>
   <!-- head (big and round) -->
   <g class="mk-head">
     <ellipse cx="129" cy="51" rx="6" ry="8" fill="url(#mkSkin)" stroke="#3d200c" stroke-width="1.6"/>
