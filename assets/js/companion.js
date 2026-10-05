@@ -86,7 +86,7 @@
   <!-- hands -->
   <circle cx="131" cy="95" r="5.5" fill="url(#mkSkin)" stroke="#3d200c" stroke-width="1.5"/>
   <circle class="mk-hand-crank" cx="147" cy="91" r="5" fill="url(#mkSkin)" stroke="#3d200c" stroke-width="1.5"/>
-</svg>`+'<i class="buddy-str"></i><div class="buddy-bubble" data-noi18n></div>';
+</svg>`+'<i class="buddy-str"></i><div class="buddy-bubble" data-noi18n></div><div class="gep-bubble" data-noi18n></div>';
   const svg=src.cloneNode(true);
   svg.removeAttribute("id");svg.removeAttribute("role");svg.removeAttribute("aria-label");
   svg.setAttribute("class","buddy-pup");
@@ -95,7 +95,7 @@
   svg.style.cssText="--nose:1.15";
   wrap.appendChild(svg);
   document.body.appendChild(wrap);
-  const bubble=wrap.querySelector(".buddy-bubble");
+  const bubble=wrap.querySelector(".buddy-bubble"),gepBubble=wrap.querySelector(".gep-bubble");
 
   /* what he says in each section */
   const LINES={
@@ -115,6 +115,8 @@
     if(!reduce){svg.classList.remove("wave");void svg.getBoundingClientRect();svg.classList.add("wave");}
   }
 
+  let gepSaid=false,gepKey=null,gepT=null;
+  function gepTalk(k){gepKey=k;gepBubble.textContent=T(k);wrap.classList.add("gep-talk");clearTimeout(gepT);gepT=setTimeout(()=>wrap.classList.remove("gep-talk"),3200);}
   function update(){
     const max=document.documentElement.scrollHeight-innerHeight;
     const p=max>0?Math.min(1,scrollY/max):0;
@@ -123,7 +125,9 @@
     const show=home?home.getBoundingClientRect().bottom<innerHeight*0.35:true;
     wrap.classList.toggle("on",show);
     /* string gets longer the further you scroll */
-    const top=70+wrap.querySelector(".toymaker").getBoundingClientRect().height*0.35,room=Math.max(0,innerHeight-top-wrap.querySelector(".buddy-pup").getBoundingClientRect().height-40);
+    const strTop=wrap.querySelector(".buddy-str").getBoundingClientRect().top;
+    const pupH=wrap.clientWidth*470/240; /* puppet height from its width, ignores the hide animation */
+    const room=Math.max(0,innerHeight-strTop-pupH-40);
     const drop=show?20+p*room:0; /* rolled up while you are on home */
     wrap.style.setProperty("--drop",Math.round(drop)+"px");
     wrap.style.setProperty("--spin",(drop*4).toFixed(1)+"deg");
@@ -135,16 +139,20 @@
     for(const id of ids){const el=document.getElementById(id);if(!el)continue;const r=el.getBoundingClientRect();if(r.top<innerHeight*0.5&&r.bottom>innerHeight*0.5)sec=id;}
     if(show&&sec&&sec!==current){current=sec;say(sec);}
     if(!show)current=null;
+    const atBottom=show&&p>0.985;
+    if(atBottom&&!gepSaid){gepSaid=true;gepTalk("Pinokkio, kom terug naar boven!");}
+    if(!atBottom&&p<0.9)gepSaid=false;
   }
 
   let ticking=false;
   addEventListener("scroll",()=>{if(!ticking){ticking=true;requestAnimationFrame(()=>{ticking=false;update()})}},{passive:true});
   addEventListener("resize",update);
-  document.addEventListener("langchange",()=>{if(key)bubble.textContent=T(LINES[key]||key)});
+  document.addEventListener("langchange",()=>{if(key)bubble.textContent=T(LINES[key]||key);if(gepKey)gepBubble.textContent=T(gepKey)});
 
   /* click him: back to the top */
   svg.style.pointerEvents="auto";
   svg.addEventListener("click",()=>{bubble.textContent=T("Terug naar boven!");wrap.classList.add("talk");scrollTo({top:0,behavior:reduce?"auto":"smooth"})});
 
   update();
+  addEventListener("load",update);setTimeout(update,600);
 })();

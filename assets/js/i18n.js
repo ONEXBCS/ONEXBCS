@@ -131,7 +131,7 @@
     "Gekopieerd! Plak het in een mail of op Discord.":"Copied! Paste it in an email or on Discord.",
     "Mailadres gekopieerd!":"Email address copied!",
     "Dit ben ik!":"That's me!","Kijk, mijn skills!":"Check out my skills!","Wat zal ik voor je bouwen?":"What shall I build for you?",
-    "Volg me!":"Follow me!","Krekel":"Cricket","Tsjirp!":"Chirp!","Wees eerlijk, Pinokkio!":"Be honest, Pinocchio!","Ik hou hem in de gaten.":"I'm keeping an eye on him.","Klik maar op Contact!":"Go ahead, click Contact!","Je hebt alles gezien! Tsjirp!":"You've seen it all! Chirp!","Een liedje voor jou!":"A little song for you!","Stuur me een brief!":"Send me a letter!","Terug naar boven!":"Back to the top!"
+    "Volg me!":"Follow me!","Krekel":"Cricket","Tsjirp!":"Chirp!","Wees eerlijk, Pinokkio!":"Be honest, Pinocchio!","Ik hou hem in de gaten.":"I'm keeping an eye on him.","Klik maar op Contact!":"Go ahead, click Contact!","Je hebt alles gezien! Tsjirp!":"You've seen it all! Chirp!","Een liedje voor jou!":"A little song for you!","Stuur me een brief!":"Send me a letter!","Terug naar boven!":"Back to the top!","Pinokkio, kom terug naar boven!":"Pinocchio, come back up here!"
   };
 
   let lang="nl";
