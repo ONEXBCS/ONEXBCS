@@ -164,8 +164,7 @@
   svg.style.pointerEvents="auto";
   let wheeT=null;
   svg.addEventListener("click",()=>{
-    wheeing=true;key=null;bubble.textContent="Wheeeee!";wrap.classList.add("talk");
-    clearTimeout(hideT);hideT=setTimeout(()=>wrap.classList.remove("talk"),2600);
+    wheeing=true;key=null;clearTimeout(hideT);wrap.classList.remove("talk","gep-talk");
     if(reduce){scrollTo({top:0,behavior:"auto"});wheeing=false;return}
     /* a slow, fun ride up that leaves a trail of "Wheeeee" behind him */
     const from=scrollY,dur=Math.min(1800,600+from*.25),t0=performance.now();
@@ -176,7 +175,7 @@
       const t=Math.min(1,(now-t0)/dur);
       scrollTo({top:Math.round(from*(1-ease(t))),behavior:"instant"});
       const r=svg.getBoundingClientRect();
-      const y=r.bottom-4;
+      const y=Math.min(r.bottom-4,innerHeight-72); /* keep the first W on screen */
       if(i<word.length&&(lastY===null||lastY-y>=17)){
         lastY=y;
         const l=document.createElement("span");l.className="whee";l.setAttribute("aria-hidden","true");
