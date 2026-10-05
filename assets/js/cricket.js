@@ -1,4 +1,4 @@
-/* ONEX — de krekel: zit links op de footer op een houten klos garen en speelt viool (alleen op computer) */
+/* ONEX — de krekel: zit links op de footer op een stapeltje oude boeken en speelt viool (alleen op computer) */
 (function(){
   const foot=document.querySelector(".foot");
   if(!foot)return;
@@ -15,16 +15,20 @@
       <linearGradient id="ckBox" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e3a466"/><stop offset="1" stop-color="#7e4a22"/></linearGradient>
       <linearGradient id="ckFid" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c46a2a"/><stop offset="1" stop-color="#6b2f0e"/></linearGradient>
     </defs>
-    <!-- big wooden spool of puppet string he sits on -->
+    <!-- stack of two old books he sits on -->
     <g class="ck-box">
-      <rect x="10" y="44" width="58" height="16" fill="#c9433a" stroke="#6b1a14" stroke-width="1.2"/>
-      <path d="M12 47h54M12 50.5h54M12 54h54M12 57.5h54" stroke="#e8675c" stroke-width="1.1" opacity=".8"/>
-      <path d="M14 44v16M22 44v16M30 44v16M38 44v16M46 44v16M54 44v16M62 44v16" stroke="#8e2a22" stroke-width=".6" opacity=".45"/>
-      <ellipse cx="9" cy="52" rx="4.5" ry="11" fill="url(#ckBox)" stroke="#5a3317" stroke-width="1.3"/>
-      <ellipse cx="69" cy="52" rx="4.5" ry="11" fill="url(#ckBox)" stroke="#5a3317" stroke-width="1.3"/>
-      <ellipse cx="69" cy="52" rx="1.6" ry="3.6" fill="#5a3317"/>
-      <!-- loose thread end -->
-      <path d="M66 59c4 3 6 4 9 3s5-2 7 0" stroke="#c9433a" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <rect x="6" y="52" width="66" height="10" rx="1.5" fill="#2f5d8a" stroke="#14304d" stroke-width="1.2"/>
+      <rect x="9" y="53.6" width="60" height="6.8" fill="#ece6d8"/>
+      <path d="M9 55.4h60M9 57.2h60M9 59h60" stroke="#cdbf9f" stroke-width=".6"/>
+      <rect x="6" y="52" width="5" height="10" rx="1" fill="#24496e"/>
+      <path d="M8 54v6" stroke="#e8b021" stroke-width="1"/>
+      <rect x="10" y="43" width="58" height="9.5" rx="1.5" fill="#8e2f26" stroke="#4a140f" stroke-width="1.2"/>
+      <rect x="13" y="44.5" width="52" height="6.5" fill="#ece6d8"/>
+      <path d="M13 46.2h52M13 48h52M13 49.6h52" stroke="#cdbf9f" stroke-width=".6"/>
+      <rect x="63" y="43" width="5" height="9.5" rx="1" fill="#6e221b"/>
+      <path d="M65.5 45v5.5" stroke="#e8b021" stroke-width="1"/>
+      <!-- ribbon bookmark -->
+      <path d="M30 51l0 9 2-2 2 2v-9" fill="#e8b021" stroke="#7a5a08" stroke-width=".6"/>
     </g>
     <!-- the cricket -->
     <g class="ck-bug">
@@ -51,12 +55,16 @@
         <rect x="69" y="12" width="2.4" height="13" rx="1" fill="#3d1a06"/>
         <circle cx="70.2" cy="11.5" r="1.8" fill="#3d1a06"/>
       </g>
+      <ellipse cx="80" cy="27.6" rx="2.6" ry="2.2" fill="#6fbf4a" stroke="#2a4f1c" stroke-width="1"/>
       <!-- bow -->
-      <!-- arm holding the fiddle, arm with the bow -->
-      <path d="M50 30q10 2 16 4" stroke="#3f8a2e" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-      <path d="M46 34q8 8 20 10" stroke="#3f8a2e" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+      <!-- forelegs: upper arm, forearm, little hands -->
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M50 29l10 2l18 -3" stroke="#2a4f1c" stroke-width="4.2"/><path d="M50 29l10 2l18 -3" stroke="#6fbf4a" stroke-width="2.6"/>
+        <path d="M46 34l8 6l9 4" stroke="#2a4f1c" stroke-width="4.2"/><path d="M46 34l8 6l9 4" stroke="#6fbf4a" stroke-width="2.6"/>
+      </g>
+      <circle cx="60" cy="31" r="1.6" fill="#3f8a2e"/><circle cx="54" cy="40" r="1.6" fill="#3f8a2e"/>
       <g class="ck-bow"><path d="M64 48L98 30" stroke="#e6dfcf" stroke-width="1.2"/><path d="M64 48L98 30" stroke="#6b3c1b" stroke-width=".6" transform="translate(0 -1.6)"/></g>
-      <circle cx="66" cy="45" r="2.6" fill="url(#ckBody)" stroke="#2a4f1c" stroke-width="1"/>
+      <ellipse cx="64" cy="45" rx="2.6" ry="2.2" fill="#6fbf4a" stroke="#2a4f1c" stroke-width="1"/>
     </g>
     <!-- music notes -->
     <g class="ck-notes" fill="#e8b021" font-family="serif"><text x="84" y="10" font-size="11">♪</text><text x="92" y="0" font-size="9">♫</text><text x="76" y="-4" font-size="8">♪</text></g>

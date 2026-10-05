@@ -28,7 +28,7 @@ De site draait rond Pinokkio, mijn bijnaam sinds ik klein ben: houten poppen, to
 - **Contact:** knip je eigen brief in elkaar en verstuur hem via Gmail, je mail-app of Discord
 - **NL / EN:** wissel met één klik tussen Nederlands en Engels
 - **Geppetto op de menubalk** (alleen op computer): de oude houtsnijder uit het originele boek van Collodi, met zijn gele pruik, ligt op de navigatiebalk en rolt het touwtje van een mini-Pinokkio af als je naar beneden scrolt; Pinokkio zegt iets bij elke sectie
-- **Krekel** (alleen op computer): zit links op de footer op een houten klos marionettentouw en speelt viool; onderaan de pagina zegt hij hallo
+- **Krekel** (alleen op computer): zit links op de footer op een stapeltje oude boeken en speelt viool; onderaan de pagina zegt hij hallo
 - **404-pagina:** 404 hangt aan touwtjes en Pinokkio kijkt verward rond (klik op een cijfer en het valt naar beneden)
 - **Bezoekersteller:** telt unieke bezoekers via GoatCounter, zonder cookies en zonder IP-adressen op te slaan
 
