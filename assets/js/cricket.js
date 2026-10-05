@@ -8,7 +8,7 @@
   const el=document.createElement("button");
   el.type="button";el.className="cricket";
   el.setAttribute("aria-label",T("Krekel"));
-  el.innerHTML=`<svg viewBox="-6 -14 96 80" aria-hidden="true">
+  el.innerHTML=`<svg viewBox="-6 -14 108 80" aria-hidden="true">
     <defs>
       <linearGradient id="ckBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fd35f"/><stop offset="1" stop-color="#3f8a2e"/></linearGradient>
       <linearGradient id="ckWing" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b5763d"/><stop offset="1" stop-color="#6b3c1b"/></linearGradient>
@@ -40,18 +40,23 @@
       <path d="M57 28q3 2 6-1" stroke="#2a4f1c" stroke-width="1.4" fill="none" stroke-linecap="round"/>
       <ellipse cx="61" cy="25.5" rx="2" ry="1.3" fill="#ef8b78" opacity=".6"/>
       <!-- tiny fiddle under his chin -->
-      <g transform="rotate(35 70 30)">
-        <path d="M64 24c3-3 7-3 8 0 2-1 4 1 3 3 3 1 3 5 0 6 1 3-2 5-5 4-2 3-7 2-8-1-3 0-4-4-2-6-2-2 0-6 4-6z" fill="url(#ckFid)" stroke="#3d1a06" stroke-width="1"/>
-        <path d="M70 26v12" stroke="#2a1206" stroke-width="1"/>
+      <g transform="translate(10 8) rotate(35 70 30)">
+        <path d="M70 22.5c3.2 0 4.6 2 4.6 4 0 1.4-1 2.2-1.6 3 .8.8 2.6 2 2.6 4.6 0 3.2-2.6 5.4-5.6 5.4s-5.6-2.2-5.6-5.4c0-2.6 1.8-3.8 2.6-4.6-.6-.8-1.6-1.6-1.6-3 0-2 1.4-4 4.6-4z" fill="url(#ckFid)" stroke="#3d1a06" stroke-width="1"/>
+        <path d="M67.6 31.5q-.8 2 0 4M72.4 31.5q.8 2 0 4" stroke="#2a1206" stroke-width=".8" fill="none"/>
+        <path d="M70 24v12" stroke="#e6dfcf" stroke-width=".5"/>
+        <rect x="68.6" y="36.4" width="2.8" height="1.4" rx=".4" fill="#2a1206"/>
         <rect x="69" y="12" width="2.4" height="13" rx="1" fill="#3d1a06"/>
         <circle cx="70.2" cy="11.5" r="1.8" fill="#3d1a06"/>
       </g>
       <!-- bow -->
-      <g class="ck-bow"><path d="M56 40L86 22" stroke="#e6dfcf" stroke-width="1.2"/><path d="M56 40L86 22" stroke="#6b3c1b" stroke-width=".6" transform="translate(0 -1.6)"/></g>
-      <circle cx="58" cy="38" r="2.6" fill="url(#ckBody)" stroke="#2a4f1c" stroke-width="1"/>
+      <!-- arm holding the fiddle, arm with the bow -->
+      <path d="M50 30q10 2 16 4" stroke="#3f8a2e" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+      <path d="M46 34q8 8 20 10" stroke="#3f8a2e" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+      <g class="ck-bow"><path d="M64 48L98 30" stroke="#e6dfcf" stroke-width="1.2"/><path d="M64 48L98 30" stroke="#6b3c1b" stroke-width=".6" transform="translate(0 -1.6)"/></g>
+      <circle cx="66" cy="45" r="2.6" fill="url(#ckBody)" stroke="#2a4f1c" stroke-width="1"/>
     </g>
     <!-- music notes -->
-    <g class="ck-notes" fill="#e8b021" font-family="serif"><text x="74" y="4" font-size="11">♪</text><text x="82" y="-6" font-size="9">♫</text><text x="66" y="-8" font-size="8">♪</text></g>
+    <g class="ck-notes" fill="#e8b021" font-family="serif"><text x="84" y="10" font-size="11">♪</text><text x="92" y="0" font-size="9">♫</text><text x="76" y="-4" font-size="8">♪</text></g>
   </svg><span class="ck-say" data-noi18n></span>`;
   foot.appendChild(el);
   const say=el.querySelector(".ck-say");

@@ -461,14 +461,14 @@ html,.field textarea{scrollbar-width:thin;scrollbar-color:var(--yolk) var(--ink-
 @media (prefers-reduced-motion:reduce){.buddy{transition:none}.mk-head,.mk-leg,.mk-eyes{animation:none}}
 
 /* cricket on a matchbox, top-left of the footer (computer only) */
-.cricket{position:absolute;left:max(16px,calc((100vw - 1180px) / 2 + 24px));bottom:100%;margin-bottom:-6px;width:96px;padding:0;border:0;background:none;cursor:pointer;z-index:3;line-height:0}
+.cricket{position:absolute;left:max(16px,calc((100vw - 1180px) / 2 + 24px));bottom:100%;margin-bottom:-6px;width:106px;padding:0;border:0;background:none;cursor:pointer;z-index:3;line-height:0}
 .cricket svg{display:block;width:100%;height:auto;overflow:visible;filter:drop-shadow(0 4px 6px #0009)}
 .cricket:focus-visible{outline:2px dashed var(--yolk);outline-offset:3px}
 .ck-ant{transform-box:view-box;transform-origin:52px 14px;animation:ckant 2.6s ease-in-out infinite}
 @keyframes ckant{0%,100%{transform:rotate(0)}50%{transform:rotate(-6deg)}}
 .ck-eye{animation:ckblink 4.4s infinite;transform-box:fill-box;transform-origin:center}
 @keyframes ckblink{0%,92%,100%{transform:none}95%{transform:scaleY(.15)}}
-.ck-bow{transform-box:view-box;transform-origin:70px 30px}
+.ck-bow{transform-box:view-box;transform-origin:80px 38px}
 .cricket.play .ck-bow{animation:ckbow .22s ease-in-out 8 alternate}
 @keyframes ckbow{from{transform:translate(-4px,2px)}to{transform:translate(5px,-3px)}}
 .ck-bug{transform-box:view-box;transform-origin:30px 44px}
