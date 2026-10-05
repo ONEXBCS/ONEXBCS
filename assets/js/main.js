@@ -2,6 +2,13 @@
 (function(){
   const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* sawdust drifting through the workshop */
+  if(!reduce){const d=document.createElement("div");d.className="dust";d.setAttribute("aria-hidden","true");
+    const n=innerWidth<700?12:24;
+    for(let i=0;i<n;i++){const p=document.createElement("i");p.style.left=Math.random()*100+"%";p.style.setProperty("--s",(2+Math.random()*3)+"px");
+      p.style.setProperty("--dur",(12+Math.random()*12)+"s");p.style.setProperty("--dl",(-Math.random()*24)+"s");p.style.setProperty("--dx",(Math.random()*80-40)+"px");d.appendChild(p)}
+    document.body.prepend(d);}
+
   /* ransom headings */
   const styles=[
     {bg:"#cfcfcf",fg:"#141414",f:"'Abril Fatface',Georgia,serif"},

@@ -32,11 +32,18 @@
 html{scroll-behavior:smooth;scroll-padding-top:var(--head)}
 html,body{background:var(--ink);color:var(--text)}
 body{font-family:var(--f-body);font-size:17px;line-height:1.6;margin:0;overflow-x:hidden;
-  background-image:
-    radial-gradient(1px 1px at 20% 30%,#ffffff26 50%,transparent 51%),
-    radial-gradient(1px 1px at 70% 60%,#ffffff1c 50%,transparent 51%),
-    radial-gradient(1.4px 1.4px at 40% 80%,#e8b02130 50%,transparent 51%);
-  background-size:180px 180px,230px 230px,260px 260px}
+  /* Geppetto's workshop at night: dark wooden planks, warm candle light, dark corners */
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 0%,#e8b0211f,transparent 70%),
+    radial-gradient(ellipse at center,transparent 50%,#00000080 100%),
+    repeating-linear-gradient(90deg,#1c1628 0 136px,#0f0b16 136px 139px,#241c33 139px 140px),
+    repeating-linear-gradient(0deg,#ffffff03 0 2px,transparent 2px 9px),
+    var(--ink);
+  background-attachment:fixed}
+/* floating sawdust (made in main.js) */
+.dust{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:-1}
+.dust i{position:absolute;bottom:-10px;width:var(--s);height:var(--s);border-radius:50%;background:#e8c79a;opacity:0;animation:rise var(--dur) linear infinite;animation-delay:var(--dl)}
+@keyframes rise{0%{transform:translate(0,0);opacity:0}10%{opacity:.35}90%{opacity:.3}100%{transform:translate(var(--dx),-105vh);opacity:0}}
 a{color:inherit;text-decoration:none}
 button{font:inherit}
 :focus-visible{outline:2px dashed var(--yolk);outline-offset:4px}
@@ -98,7 +105,7 @@ section{min-height:100svh;display:flex;align-items:center;padding-block:calc(var
 .sec-head{margin-bottom:40px;display:grid;gap:10px}
 .sec-head h2{font-size:clamp(26px,5.6vw,56px);--g:clamp(3px,.8vw,5px)}
 .sec-head p{margin:0;font-family:var(--f-type);color:var(--muted);font-size:15px}
-.alt{background:linear-gradient(180deg,transparent,#18142aa6 14%,#18142aa6 86%,transparent)}
+.alt{background:linear-gradient(180deg,transparent,#15101fcc 14%,#15101fcc 86%,transparent)}
 
 .btns{display:flex;gap:12px;flex-wrap:wrap}
 .btn{font-family:var(--f-block);font-size:15px;letter-spacing:.08em;text-transform:uppercase;padding:14px 24px;background:var(--yolk);color:var(--ink);border:0;cursor:pointer;

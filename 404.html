@@ -10,7 +10,7 @@
 <title>404 · ONEX</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bowlby+One&family=Familjen+Grotesk:wght@400;500;700&family=Special+Elite&family=Rubik+Mono+One&family=Playfair+Display:ital,wght@1,900&display=swap">
-<link rel="stylesheet" href="/assets/css/style.css?v=37">
+<link rel="stylesheet" href="/assets/css/style.css?v=38">
 <style>
   /* 404: Geppetto's workshop at night. A "wanted" poster for the lost page, Pinokkio looking around, sawdust in the candle light.
      Everything fits one screen: no scrolling. */
@@ -32,12 +32,10 @@
   .big404{font-size:min(clamp(46px,10vw,104px),11vh);--g:clamp(10px,2vw,22px);justify-content:center;padding-top:clamp(46px,8vw,76px);position:relative;margin:0}
   .big404::before{content:"";position:absolute;top:clamp(8px,1.6vw,16px);left:50%;width:calc(100% + 50px);height:12px;transform:translateX(-50%);border-radius:6px;
     background:linear-gradient(180deg,#e3a466,#c88a4b 50%,#7e4a22);box-shadow:0 6px 12px #0008}
-  .big404 .hg{position:relative;display:inline-block;transform-origin:50% calc(-1 * clamp(38px,6.6vw,60px));animation:hang var(--t) ease-in-out infinite;animation-delay:var(--d);cursor:pointer}
+  .big404 .hg{position:relative;display:inline-block;transform-origin:50% calc(-1 * clamp(38px,6.6vw,60px));animation:hang var(--t) ease-in-out infinite;animation-delay:var(--d);}
   .big404 .hg::before{content:"";position:absolute;left:50%;bottom:100%;width:1.5px;height:clamp(38px,6.6vw,60px);background:#e6dfcfaa}
   .big404 .hg::after{content:"";position:absolute;left:calc(50% - 4px);top:-4px;width:8px;height:8px;border-radius:50%;background:var(--yolk);box-shadow:0 0 0 2px var(--ink);z-index:2}
   @keyframes hang{0%,100%{transform:rotate(calc(var(--a) * -1))}50%{transform:rotate(var(--a))}}
-  .big404 .hg.drop{animation:fall 1.2s cubic-bezier(.5,0,.7,.4) forwards}
-  @keyframes fall{0%{transform:rotate(0)}30%{transform:rotate(25deg)}100%{transform:translateY(70vh) rotate(160deg);opacity:0}}
 
   /* wanted poster */
   .poster{position:relative;width:min(400px,100%);background:#efe4c9;color:var(--ink);padding:clamp(14px,2.4vh,22px) 24px clamp(12px,2vh,18px);transform:rotate(-1.6deg);
@@ -150,7 +148,6 @@
     <h1 data-t>Deze pagina</h1>
     <dl>
       <dt data-t>Adres:</dt><dd id="path">/</dd>
-      <dt data-t>Kenmerken:</dt><dd data-t>bestaat niet, of is verhuisd</dd>
     </dl>
   </div>
 
@@ -163,16 +160,14 @@
     <div class="btns" style="justify-content:center">
       <a class="btn" href="/" data-t>Terug naar home</a>
     </div>
-    <p class="sm" data-t>Tip: klik op de cijfers van 404.</p>
   </div>
 </main>
 
 <script>
 (function(){
   const EN={
-    "Deze pagina":"This page","Adres:":"Address:","Kenmerken:":"Description:",
-    "bestaat niet, of is verhuisd":"doesn't exist, or has moved",
-    "Terug naar home":"Back to home","Tip: klik op de cijfers van 404.":"Tip: click the numbers of 404.","Kies taal":"Choose language",
+    "Deze pagina":"This page","Adres:":"Address:",
+    "Terug naar home":"Back to home","Kies taal":"Choose language",
     "GEZOCHT":"WANTED","Gezocht":"Wanted"
   };
   let lang="nl";
@@ -189,7 +184,7 @@
   const big=document.querySelector(".big404");
   [..."404"].forEach((ch,i)=>{const hg=document.createElement("span");hg.className="hg";
     hg.style.setProperty("--a",[3,4,2.5][i]+"deg");hg.style.setProperty("--t",[2.6,2.1,2.9][i]+"s");hg.style.setProperty("--d",(-i*.7)+"s");
-    hg.appendChild(letter(ch,[0,1,2][i]));hg.addEventListener("click",()=>{hg.classList.add("drop");setTimeout(()=>hg.classList.remove("drop"),1600)});big.appendChild(hg)});
+    hg.appendChild(letter(ch,[0,1,2][i]));big.appendChild(hg)});
 
   /* ransom "GEZOCHT" */
   const wanted=document.getElementById("wanted");
