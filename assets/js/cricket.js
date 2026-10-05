@@ -1,4 +1,4 @@
-/* ONEX — de krekel: zit links op de footer op een luciferdoosje en speelt viool (alleen op computer) */
+/* ONEX — de krekel: zit links op de footer op een houten klos garen en speelt viool (alleen op computer) */
 (function(){
   const foot=document.querySelector(".foot");
   if(!foot)return;
@@ -12,16 +12,19 @@
     <defs>
       <linearGradient id="ckBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fd35f"/><stop offset="1" stop-color="#3f8a2e"/></linearGradient>
       <linearGradient id="ckWing" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b5763d"/><stop offset="1" stop-color="#6b3c1b"/></linearGradient>
-      <linearGradient id="ckBox" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8b021"/><stop offset="1" stop-color="#b8861a"/></linearGradient>
+      <linearGradient id="ckBox" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e3a466"/><stop offset="1" stop-color="#7e4a22"/></linearGradient>
       <linearGradient id="ckFid" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c46a2a"/><stop offset="1" stop-color="#6b2f0e"/></linearGradient>
     </defs>
-    <!-- matchbox he sits on -->
+    <!-- big wooden spool of puppet string he sits on -->
     <g class="ck-box">
-      <rect x="4" y="44" width="70" height="18" rx="2" fill="url(#ckBox)" stroke="#5a3a08" stroke-width="1.4"/>
-      <rect x="4" y="44" width="70" height="4" fill="#d6312a"/>
-      <rect x="22" y="51" width="34" height="8" rx="1" fill="#ece6d8" stroke="#5a3a08" stroke-width=".8"/>
-      <text x="39" y="57.6" text-anchor="middle" font-size="6" font-family="'Bowlby One','Arial Black',sans-serif" fill="#0f0c19">ONEX</text>
-      <path d="M68 49l8-3" stroke="#3d200c" stroke-width="2.4" stroke-linecap="round"/><circle cx="77" cy="45.5" r="2.2" fill="#d6312a"/>
+      <rect x="10" y="44" width="58" height="16" fill="#c9433a" stroke="#6b1a14" stroke-width="1.2"/>
+      <path d="M12 47h54M12 50.5h54M12 54h54M12 57.5h54" stroke="#e8675c" stroke-width="1.1" opacity=".8"/>
+      <path d="M14 44v16M22 44v16M30 44v16M38 44v16M46 44v16M54 44v16M62 44v16" stroke="#8e2a22" stroke-width=".6" opacity=".45"/>
+      <ellipse cx="9" cy="52" rx="4.5" ry="11" fill="url(#ckBox)" stroke="#5a3317" stroke-width="1.3"/>
+      <ellipse cx="69" cy="52" rx="4.5" ry="11" fill="url(#ckBox)" stroke="#5a3317" stroke-width="1.3"/>
+      <ellipse cx="69" cy="52" rx="1.6" ry="3.6" fill="#5a3317"/>
+      <!-- loose thread end -->
+      <path d="M66 59c4 3 6 4 9 3s5-2 7 0" stroke="#c9433a" stroke-width="1.2" fill="none" stroke-linecap="round"/>
     </g>
     <!-- the cricket -->
     <g class="ck-bug">
