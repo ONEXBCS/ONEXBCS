@@ -476,6 +476,7 @@ html,.field textarea{scrollbar-width:thin;scrollbar-color:var(--yolk) var(--ink-
 @keyframes mkkick{0%,100%{transform:rotate(-10deg)}50%{transform:rotate(14deg)}}
 .buddy-str{display:block;width:1.5px;height:var(--drop,20px);margin:0 auto;background:linear-gradient(#e6dfcf33,#e6dfcfcc);transition:height .3s ease-out}
 .buddy-pup{display:block;width:100%;height:auto;overflow:visible;margin-top:-2px;cursor:pointer;filter:drop-shadow(0 8px 12px #0009)}
+.buddy:not(.on) .buddy-pup{pointer-events:none!important;cursor:default} /* rolled up on home: not clickable */
 .buddy-pup .all{transform-box:view-box;transform-origin:160px 40px;animation:sway 4s ease-in-out infinite}
 .buddy-pup.wave .armR{animation:wave2 .3s ease-in-out 6 alternate}
 .buddy-pup.wave .armL{animation:wave .3s ease-in-out 6 alternate}
