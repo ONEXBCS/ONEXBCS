@@ -460,27 +460,32 @@ html,.field textarea{scrollbar-width:thin;scrollbar-color:var(--yolk) var(--ink-
 }
 @media (prefers-reduced-motion:reduce){.buddy{transition:none}.mk-head,.mk-leg,.mk-eyes{animation:none}}
 
-/* cricket sitting on the navbar next to the logo */
-.cricket{position:absolute;bottom:0;width:clamp(40px,3.6vw,52px);padding:0;border:0;background:none;cursor:pointer;z-index:2;line-height:0}
-.cricket svg{display:block;width:100%;height:auto;overflow:visible;filter:drop-shadow(0 3px 4px #0008)}
+/* cricket on a matchbox, top-left of the footer (computer only) */
+.cricket{position:absolute;left:max(16px,calc((100vw - 1180px) / 2 + 24px));bottom:100%;margin-bottom:-6px;width:96px;padding:0;border:0;background:none;cursor:pointer;z-index:3;line-height:0}
+.cricket svg{display:block;width:100%;height:auto;overflow:visible;filter:drop-shadow(0 4px 6px #0009)}
 .cricket:focus-visible{outline:2px dashed var(--yolk);outline-offset:3px}
 .ck-ant{transform-box:view-box;transform-origin:52px 14px;animation:ckant 2.6s ease-in-out infinite}
 @keyframes ckant{0%,100%{transform:rotate(0)}50%{transform:rotate(-6deg)}}
 .ck-eye{animation:ckblink 4.4s infinite;transform-box:fill-box;transform-origin:center}
 @keyframes ckblink{0%,92%,100%{transform:none}95%{transform:scaleY(.15)}}
+.ck-shut{opacity:0}
+.cricket.play .ck-eye{opacity:0}.cricket.play .ck-shut{opacity:1}
+.ck-bow{transform-box:view-box;transform-origin:70px 30px}
+.cricket.play .ck-bow{animation:ckbow .22s ease-in-out 8 alternate}
+@keyframes ckbow{from{transform:translate(-4px,2px)}to{transform:translate(5px,-3px)}}
+.ck-bug{transform-box:view-box;transform-origin:30px 44px}
+.cricket.play .ck-bug{animation:cksway .44s ease-in-out 4 alternate}
+@keyframes cksway{to{transform:rotate(-3deg)}}
 .ck-notes{opacity:0}
-.cricket.chirp .ck-notes{animation:cknotes 1.4s ease-out}
-@keyframes cknotes{0%{opacity:0;transform:translate(0,6px)}20%{opacity:1}100%{opacity:0;transform:translate(6px,-10px)}}
-.ck-wing{transform-box:view-box;transform-origin:22px 22px}
-.cricket.chirp .ck-wing{animation:ckwing .08s linear 10 alternate}
-@keyframes ckwing{to{transform:rotate(-7deg)}}
-.cricket.hop svg{animation:ckhop .6s cubic-bezier(.3,1.5,.5,1)}
-@keyframes ckhop{0%,100%{transform:none}40%{transform:translateY(-16px) rotate(-8deg)}}
-.ck-say{position:absolute;left:50%;top:calc(100% + 10px);transform:translateX(-30%) scale(.6);opacity:0;pointer-events:none;width:max-content;max-width:180px;
-  background:#fff;color:var(--ink);border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);padding:6px 9px;font-family:var(--f-type);font-size:12px;line-height:1.3;
+.cricket.play .ck-notes{animation:cknotes 1.8s ease-out}
+@keyframes cknotes{0%{opacity:0;transform:translate(0,8px)}20%{opacity:1}100%{opacity:0;transform:translate(10px,-14px)}}
+.cricket.hop .ck-bug{animation:ckhop .6s cubic-bezier(.3,1.5,.5,1)}
+@keyframes ckhop{0%,100%{transform:none}40%{transform:translateY(-14px) rotate(-6deg)}}
+.ck-say{position:absolute;left:calc(100% + 6px);top:4px;transform:scale(.6);transform-origin:left center;opacity:0;pointer-events:none;width:max-content;max-width:200px;
+  background:#fff;color:var(--ink);border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);padding:6px 9px;font-family:var(--f-type);font-size:13px;line-height:1.3;
   transition:opacity .2s,transform .3s cubic-bezier(.3,1.6,.5,1)}
-.ck-say::before{content:"";position:absolute;left:24px;top:-8px;width:12px;height:12px;background:#fff;border-left:2px solid var(--ink);border-top:2px solid var(--ink);transform:rotate(45deg)}
-.cricket.talk .ck-say{opacity:1;transform:translateX(-30%) scale(1)}
-@media (max-width:420px){.cricket{width:34px}}
+.ck-say::before{content:"";position:absolute;left:-8px;top:10px;width:12px;height:12px;background:#fff;border-left:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg)}
+.cricket.talk .ck-say{opacity:1;transform:scale(1)}
+@media (max-width:1099px),(pointer:coarse){.cricket{display:none}}
 @media (prefers-reduced-motion:reduce){.ck-ant,.ck-eye{animation:none}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}.skill .fill{width:calc(var(--p) * 1%)}}
