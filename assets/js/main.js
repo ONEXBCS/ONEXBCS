@@ -202,6 +202,25 @@
     if(r){r.checked=true;update();status.textContent="";}
   }));
 
+  /* visitor counter: each browser counts once */
+  (function(){
+    const API="https://abacus.jasoncameron.dev",NS="onexbcs-github-io",KEY="visitors";
+    const box=document.getElementById("v-digits");
+    let seen=false;try{seen=localStorage.getItem("onex-visited")==="1"}catch(e){}
+    function show(n){
+      const d=String(n).padStart(4,"0");
+      box.innerHTML="";
+      [...d].forEach((c,i)=>{const el=document.createElement("i");el.textContent=c;el.style.setProperty("--r",((i%2?1:-1)*(1+(+c%3)))+"deg");
+        if(!reduce)el.style.animationDelay=(i*90)+"ms";box.appendChild(el)});
+      box.setAttribute("aria-label",n);
+    }
+    fetch(`${API}/${seen?"get":"hit"}/${NS}/${KEY}`).then(r=>r.json()).then(j=>{
+      if(typeof j.value!=="number")return;
+      if(!seen){try{localStorage.setItem("onex-visited","1")}catch(e){}}
+      show(j.value);
+    }).catch(()=>{document.getElementById("visits").hidden=true});
+  })();
+
   /* language NL / EN */
   document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
   document.addEventListener("langchange",()=>{

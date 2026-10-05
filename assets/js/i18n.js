@@ -98,6 +98,7 @@
     "Geen enkele leugen op deze site":"Not a single lie on this site",
     "*behalve wat Pinokkio zegt":"*except what Pinocchio says",
     "Naar boven":"Back to top",
+    "al bezocht door":"already visited by","mensen":"people",
 
     /* dynamisch (main.js) */
     "Mijn code werkt altijd meteen.":"My code always works first try.",
