@@ -421,7 +421,7 @@ html,.field textarea{scrollbar-width:thin;scrollbar-color:var(--yolk) var(--ink-
 @keyframes flip{from{transform:translateY(-14px) rotate(-20deg);opacity:0}}
 
 /* mini Pinokkio that follows you */
-.buddy{--bw:clamp(48px,5.6vw,78px);position:fixed;right:clamp(16px,2.4vw,34px);top:calc(var(--head) + env(safe-area-inset-top,0px) + 1px);z-index:55;width:var(--bw);pointer-events:none}
+.buddy{--bw:clamp(40px,4vw,54px);position:fixed;right:clamp(16px,2.4vw,34px);top:calc(var(--head) + env(safe-area-inset-top,0px) + 1px);z-index:55;width:var(--bw);pointer-events:none}
 /* string + Pinokkio only come down once you scroll past home */
 .buddy .buddy-pup{transition:opacity .4s,transform .5s cubic-bezier(.3,1.4,.5,1)}
 .buddy:not(.on) .buddy-pup{opacity:0;transform:translateY(-40px) scale(.6)}
@@ -455,7 +455,7 @@ html,.field textarea{scrollbar-width:thin;scrollbar-color:var(--yolk) var(--ink-
 @media (max-width:1099px),(pointer:coarse){.buddy{display:none}}
 /* on computers: keep the right part of the navbar free so he lies next to the menu, not on it */
 @media (min-width:1100px) and (pointer:fine){
-  .header .wrap{padding-right:max(clamp(20px,5vw,56px),calc(clamp(16px,2.4vw,34px) + 2.25 * clamp(48px,5.6vw,78px) + 14px - max(0px,(100vw - 1180px) / 2)))}
+  .header .wrap{padding-right:max(clamp(20px,5vw,56px),calc(clamp(16px,2.4vw,34px) + 2.25 * clamp(40px,4vw,54px) + 14px - max(0px,(100vw - 1180px) / 2)))}
 }
 @media (prefers-reduced-motion:reduce){.buddy{transition:none}.mk-head,.mk-leg,.mk-eyes{animation:none}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}.skill .fill{width:calc(var(--p) * 1%)}}
