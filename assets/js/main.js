@@ -213,26 +213,37 @@
       box.setAttribute("aria-label",n);
     }
     /* count this browser once: GoatCounter itself stores no IPs */
-    let counted=false;try{counted=localStorage.getItem("onex-counted")==="1"}catch(e){}
+    let counted=false,justCounted=false;try{counted=localStorage.getItem("onex-counted")==="1"}catch(e){}
+    if(!counted)justCounted=true; /* this visit is about to be counted */
     function countOnce(tries){
       if(counted)return;
       if(window.goatcounter&&window.goatcounter.count){
         window.goatcounter.count({path:"/",title:"ONEX"});
         try{localStorage.setItem("onex-counted","1")}catch(e){}
-        counted=true;
+        counted=true;justCounted=true;
       }else if(tries<20)setTimeout(()=>countOnce(tries+1),250);
     }
     countOnce(0);
+    /* GoatCounter caches each counter URL for a while. A far-future "end" date that changes
+       on every request gives a fresh URL, so the number is always current. */
+    let shown=-1,bump=0,base=null;
+    const started=Date.now();
+    function render(n){if(n!==shown){shown=n;show(n)}}
     function load(){
-      /* GoatCounter caches each counter URL for a while. A far-future "end" date that changes
-         every minute gives a fresh URL, so the number on the site stays up to date. */
-      const end=new Date(Date.UTC(2030,0,1)+(Math.floor(Date.now()/60000)%3000)*864e5).toISOString().slice(0,10);
+      const end=new Date(Date.UTC(2030,0,1)+(Math.floor(Date.now()/1000)%3000)*864e5).toISOString().slice(0,10);
       fetch("https://onexbcs.goatcounter.com/counter/TOTAL.json?start=2026-10-05&end="+end,{cache:"no-store"}).then(r=>r.ok?r.json():Promise.reject()).then(j=>{
         const n=parseInt(String(j.count).replace(/\D/g,""),10);
-        if(!isNaN(n))show(n);
-      }).catch(()=>{document.getElementById("visits").hidden=true});
+        if(isNaN(n))return;
+        if(base===null){base=n;bump=justCounted?1:0}
+        /* a new visitor sees themselves at once; GoatCounter needs a few seconds to process the visit */
+        if(bump&&(n>base||Date.now()-started>120000))bump=0;
+        render(n+bump);
+      }).catch(()=>{if(shown<0)document.getElementById("visits").hidden=true});
     }
-    setTimeout(load,2500); /* give GoatCounter a moment to count this visit first */
+    load();
+    /* keep the number live while the page is open */
+    setInterval(()=>{if(!document.hidden)load()},20000);
+    document.addEventListener("visibilitychange",()=>{if(!document.hidden)load()});
   })();
 
   /* language NL / EN */
