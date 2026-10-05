@@ -28,6 +28,7 @@ De site draait rond Pinokkio, mijn bijnaam sinds ik klein ben: houten poppen, to
 - **Contact:** knip je eigen brief in elkaar en verstuur hem via Gmail, je mail-app of Discord
 - **NL / EN:** wissel met één klik tussen Nederlands en Engels
 - **Houtsnijder op de menubalk** (alleen op computer): hij ligt op de navigatiebalk en rolt het touwtje van een mini-Pinokkio af als je naar beneden scrolt; Pinokkio zegt iets bij elke sectie
+- **Krekel:** zit naast het logo op de menubalk, tsjirpt af en toe en zegt iets als je erop klikt
 - **404-pagina:** 404 hangt aan touwtjes en Pinokkio kijkt verward rond (klik op een cijfer en het valt naar beneden)
 - **Bezoekersteller:** telt unieke bezoekers via GoatCounter, zonder cookies en zonder IP-adressen op te slaan
 
@@ -48,7 +49,8 @@ assets/
   css/style.css            alle opmaak
   js/i18n.js               vertalingen Nederlands ⇄ Engels
   js/main.js               alle interactie (marionet, skills, contactbrief)
-  js/companion.js          mini-Pinokkio die je volgt tijdens het scrollen
+  js/companion.js          houtsnijder + mini-Pinokkio die je volgt tijdens het scrollen
+  js/cricket.js            de krekel op de menubalk
   images/                  ONEX-letters, logo en favicons
 ```
 
