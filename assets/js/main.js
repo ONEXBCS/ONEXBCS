@@ -208,7 +208,10 @@
     function show(n){
       const d=String(n).padStart(4,"0");
       box.innerHTML="";
+      box.style.setProperty("--len",d.length);
+      box.classList.toggle("long",d.length>6);
       [...d].forEach((c,i)=>{const el=document.createElement("i");el.textContent=c;el.style.setProperty("--r",((i%2?1:-1)*(1+(+c%3)))+"deg");
+        if(d.length>4&&i>0&&(d.length-i)%3===0)el.classList.add("grp"); /* small gap every 3 digits: 1 234 567 */
         if(!reduce)el.style.animationDelay=(i*90)+"ms";box.appendChild(el)});
       box.setAttribute("aria-label",n);
     }

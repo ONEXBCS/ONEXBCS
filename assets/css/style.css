@@ -410,8 +410,10 @@ html,.field textarea{scrollbar-width:thin;scrollbar-color:var(--yolk) var(--ink-
 /* visitor counter */
 .visits-row{display:flex;justify-content:center;padding-block:4px 26px}
 .visits{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;font-family:var(--f-type);font-size:14px;color:var(--muted)}
-.v-digits{display:flex;gap:4px}
-.v-digits i{font-style:normal;display:grid;place-items:center;width:34px;height:42px;font-family:var(--f-display);font-size:26px;
+.v-digits{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;max-width:100%;
+  --w:clamp(18px,calc((100vw - 60px) / var(--len,4) - 4px),34px)}
+.v-digits i.grp{margin-left:6px}
+.v-digits i{font-style:normal;display:grid;place-items:center;width:var(--w);height:calc(var(--w) * 1.24);font-family:var(--f-display);font-size:calc(var(--w) * .76);
   background:var(--paper);color:var(--ink);box-shadow:0 4px 10px #0008;transform:rotate(var(--r,0deg));
   clip-path:polygon(4% 3%,97% 0,100% 95%,3% 100%);animation:flip .5s cubic-bezier(.3,1.6,.5,1) both;font-variant-numeric:tabular-nums}
 .v-digits i:nth-child(3n+2){background:var(--yolk)}
