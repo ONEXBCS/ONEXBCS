@@ -212,13 +212,24 @@
         if(!reduce)el.style.animationDelay=(i*90)+"ms";box.appendChild(el)});
       box.setAttribute("aria-label",n);
     }
+    /* count this browser once: GoatCounter itself stores no IPs */
+    let counted=false;try{counted=localStorage.getItem("onex-counted")==="1"}catch(e){}
+    function countOnce(tries){
+      if(counted)return;
+      if(window.goatcounter&&window.goatcounter.count){
+        window.goatcounter.count({path:"/",title:"ONEX"});
+        try{localStorage.setItem("onex-counted","1")}catch(e){}
+        counted=true;
+      }else if(tries<20)setTimeout(()=>countOnce(tries+1),250);
+    }
+    countOnce(0);
     function load(){
-      fetch("https://onexbcs.goatcounter.com/counter/TOTAL.json",{cache:"no-store"}).then(r=>r.ok?r.json():Promise.reject()).then(j=>{
+      fetch("https://onexbcs.goatcounter.com/counter/TOTAL.json?start=2026-10-01",{cache:"no-store"}).then(r=>r.ok?r.json():Promise.reject()).then(j=>{
         const n=parseInt(String(j.count).replace(/\D/g,""),10);
         if(!isNaN(n))show(n);
       }).catch(()=>{document.getElementById("visits").hidden=true});
     }
-    setTimeout(load,1500); /* give GoatCounter a moment to count this visit first */
+    setTimeout(load,2500); /* give GoatCounter a moment to count this visit first */
   })();
 
   /* language NL / EN */
