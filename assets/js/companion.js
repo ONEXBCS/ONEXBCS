@@ -163,7 +163,7 @@
   /* click him: back to the top */
   svg.style.pointerEvents="auto";
   let wheeT=null;
-  svg.addEventListener("click",()=>{
+  function whee(){
     wheeing=true;key=null;clearTimeout(hideT);wrap.classList.remove("talk","gep-talk");
     if(reduce){scrollTo({top:0,behavior:"auto"});wheeing=false;return}
     /* a slow, fun ride up that leaves a trail of "Wheeeee" behind him */
@@ -191,6 +191,13 @@
       if(t<1)wheeT=requestAnimationFrame(step);else wheeing=false;
     };
     wheeT=requestAnimationFrame(step);
+  }
+  svg.addEventListener("click",whee);
+  /* ONEX logo, Home and "Naar boven" links: same ride up */
+  document.addEventListener("click",e=>{
+    const a=e.target.closest('a[href="#home"]');
+    if(!a||!wrap.classList.contains("on")||scrollY<=2)return;
+    e.preventDefault();whee();
   });
 
   update();
